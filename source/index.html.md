@@ -36,8 +36,8 @@ GET https://charitybase.uk/api/v1.0.0/charities
 
 The CharityBase API has one endpoint which returns a list of registered charities.  By specifying query string parameters in the URL you can:
 
-* Choose which properties are returned for each charity
-* Filter, sort and page through the results
+* Choose which properties are returned for each charity.
+* Filter, sort and page through the results.
 
 Usage of the URL parameters is explained in the following documentation.
 
