@@ -41,8 +41,8 @@ under the License.
         <%= image_tag('navbar.png') %>
       </span>
     </a>
-    <div class="tocify-wrapper">
-      <a href="https://charitybase.uk"><%= image_tag("logo.png") %></a>
+    <div class="toc-wrapper">
+      <a href="https://charitybase.uk"><%= image_tag "logo.png", class: 'logo' %></a>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
