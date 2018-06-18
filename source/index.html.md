@@ -2,7 +2,7 @@
 title: CharityBase Docs
 
 toc_footers:
-  - <a href='https://github.com/tythe-org/charity-base-docs'>Edit on GitHub</a>
+  - <a href='https://github.com/charity-base/charity-base-docs'>Edit on GitHub</a>
 
 includes:
   - errors
@@ -21,7 +21,7 @@ The bulk of the database is formed by combining [files](http://data.charitycommi
 > The charities endpoint:
 
 ```shell
-GET https://charitybase.uk/api/v1.0.0/charities
+GET https://charitybase.uk/api/v2.0.0/charities
 ```
 
 > Successful JSON response (status 200):
@@ -30,7 +30,7 @@ GET https://charitybase.uk/api/v1.0.0/charities
 {
   "charities": [{ ... }],
   "query": { ... },
-  "version": "v1.0.0"
+  "version": "v2.0.0"
 }
 ```
 
@@ -78,11 +78,7 @@ URL Parameter | Description
 `fields` | Comma-separated list of properties.
 
 <aside class="notice">
-  There is a special value <code>fields=all</code> which will return all properties from the schema.  Think carefully before using this as it significantly increases the response size.
-</aside>
-
-<aside class="notice">
-  If the <code>search</code> filter parameter is used, the <code>score</code> of the text-matching will also be returned as a property on each charity.
+  Use <code>fields=*</code> to return all properties from the schema.  Think carefully before doing this as it significantly increases the response size.
 </aside>
 
 # Filtering Results
@@ -108,9 +104,7 @@ URL Parameter | Description
 ?search=tower%20hamlets
 ```
 
-Searches over all text properties of each charity.  The search algorithm is subject to change without notice.
-
-Using the `search` parameter changes the default sorting of results to descending `score` (a non-schema property which is projected onto charity search results).
+Searches over many text fields of each charity with higher weight given to the charity's names.
 
 URL Parameter | Description
 --------- | -----------
@@ -119,17 +113,21 @@ URL Parameter | Description
 
 ## Income
 
-> Income between £100k and £5m inclusive:
+> Income between £100k and £5m:
 
 ```shell
-?income.latest.total>=100000&income.latest.total<=5000000
+?incomeRange=100000,5000000
 ```
 
-As well as the standard `=`, income can be constrained with other operators in the query string: `>`, `>=`, `<` and `<=`.
+> Income greater than £100m:
+
+```shell
+?incomeRange=100000000,
+```
 
 URL Parameter | Description
 --------- | -----------
-`income.latest.total` | Latest gross revenue
+`incomeRange` | Comma-separated pair of the form `min_incl,max_excl`
 
 
 ## Location
@@ -139,14 +137,14 @@ URL Parameter | Description
 > Charities within 5km of Manchester city centre:
 
 ```shell
-?addressWithin=5,53.4723272,-2.2935021
+?addressWithin=5km,53.4723272,-2.2935021
 ```
 
 Request charities whose addresses are in close proximity to a point using the `addressWithin` parameter.
 
 URL Parameter | Description
 --------- | -----------
-`addressWithin` | Comma-separated list of the form `kilometres,latitude,longitude`
+`addressWithin` | Comma-separated list of the form `distance,latitude,longitude`
 
 
 ### Areas of Operation
@@ -207,63 +205,26 @@ URL Parameter | Description
 --------- | -----------
 `operations.id` | Comma-separated list of operation IDs.
 
-## Number of Trustees
-
-> Charities with no more than 24 Trustees (and at least 1 Trustee):
-
-```shell
-?trustees.names.0&!trustees.names.24
-```
-
-A charity typically has a handful of Trustees but the number can vary significantly.  One charity currently has 305 Trustees.
-
-URL Parameter | Description
---------- | -----------
-`trustees.names.n` | To request existence of (n+1)<sup>th</sup> Trustee.
-`!trustees.names.n` | To request non-existence of (n+1)<sup>th</sup> Trustee.
-
-<aside class="notice">
-  Bear in mind indices start from 0.
-</aside>
-
-## Number of Subsidiaries
-
-> Charities with between 20 and 35 Subsidiaries (inclusive)
-
-```shell
-?subsidiaries.19&!subsidiaries.35
-```
-
-Only 2% of charities have subsidiaries but a handful have more than 100 currently registered subsidiaries.
-
-URL Parameter | Description
---------- | -----------
-`subsidiaries.n` | To request existence of (n+1)<sup>th</sup> subsidiary.
-`!subsidiaries.n` | To request non-existence of (n+1)<sup>th</sup> subsidiary.
-
-<aside class="notice">
-  Bear in mind indices start from 0.
-</aside>
-
-<!-- ## isWelsh
-## isSchool
-## trustees.incorporated -->
 
 # Ordering Results
 
 > Sort charities by most recently registered:
 
 ```shell
-?sort=-ids.GB-CHC
+?sort=ids.GB-CHC:desc
 ```
 
-By default results are returned by descending income except when the `search` filter is used in which case results are ordered by descending `score` i.e. most relevant first.
+> Sort charities by decreasing income:
 
-This behaviour can be overridden using the `sort` parameter, which expects a comma-separated list of fields.  Prefix fields with `-` to sort in descending order.
+```shell
+?sort=income.latest.total:desc
+```
+
+By default results are ordered by relevance (if the `search` parameter is provided), followed by descending income.  This behaviour can be overridden using the `sort` parameter.
 
 URL Parameter | Description
 --------- | -----------
-`sort` | Comma-separated list of properties.
+`sort` | Name of sort field (optionally suffixed with `:asc` or `:desc`)
 
 
 # Pagination with skip & limit
@@ -337,9 +298,9 @@ URL Parameter | Description
         "ccg" : String,
         "nuts" : String
       },
-      "location" : { type: [Number], index: "2dsphere" }
     }
   },
+  "geo_coords": String,
   "isWelsh": Boolean,
   "trustees": {
     "incorporated": Boolean,
@@ -362,7 +323,7 @@ URL Parameter | Description
     }],
   },
   "fyend": String,
-  "companiesHouseNumber": Number,
+  "companiesHouseNumber": String,
   "areasOfOperation": [{
     "id" : String,
     "parentId" : String,
@@ -398,6 +359,11 @@ URL Parameter | Description
     },
   }],
   "alternativeNames": [String],
+  "people": {
+    "trustees": Number,
+    "employees": Number,
+    "volunteers": Number,
+  },
 }
 ```
 
@@ -411,6 +377,7 @@ isRegistered | `true` if charity still registered.
 governingDoc | History of governing document.
 areaOfBenefit | Free text field describing the geographical area the charity benefits.
 contact | Object detailing the point of contact and registered address geolocation.
+geo_coords | String of the form `latitude,longitude`.
 isWelsh | `true` if charity is Welsh.
 trustees | Object listing names of Trustees and whether or not one is an incorporated entity.
 website | URL of charity website.
@@ -425,6 +392,7 @@ operations | List of operations the charity undertakes.
 activities | Free text field describing the aims and activities of the charity.
 subsidiaries | List of subsidiary groups.
 alternativeNames | List of all registered working names of the charity.
+people | Object detailing numbers of trustees, employees & volunteers.
 
 # ID Lookup
 
