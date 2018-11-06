@@ -203,7 +203,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,78 +211,64 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <a href="https://charitybase.uk"><img src="images/logo.png" class="logo" alt="Logo" /></a>
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc" class="toc-list-h1">
+      <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#endpoint" class="toc-h1 toc-link" data-title="endpoint">Endpoint</a>
-          </li>
-          <li>
-            <a href="#projecting-properties" class="toc-h1 toc-link" data-title="projecting-properties">Projecting Properties</a>
-          </li>
-          <li>
-            <a href="#filtering-results" class="toc-h1 toc-link" data-title="filtering-results">Filtering Results</a>
+            <a href="#charities" class="toc-h1 toc-link" data-title="Charities">Charities</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#charity-number" class="toc-h2 toc-link" data-title="charity-number">Charity Number</a>
+                    <a href="#list-charities" class="toc-h2 toc-link" data-title="List Charities">List Charities</a>
                   </li>
                   <li>
-                    <a href="#search" class="toc-h2 toc-link" data-title="search">Search</a>
+                    <a href="#count-charities" class="toc-h2 toc-link" data-title="Count Charities">Count Charities</a>
                   </li>
                   <li>
-                    <a href="#income" class="toc-h2 toc-link" data-title="income">Income</a>
+                    <a href="#aggregate-charities" class="toc-h2 toc-link" data-title="Aggregate Charities">Aggregate Charities</a>
                   </li>
                   <li>
-                    <a href="#location" class="toc-h2 toc-link" data-title="location">Location</a>
-                  </li>
-                  <li>
-                    <a href="#causes" class="toc-h2 toc-link" data-title="causes">Causes</a>
-                  </li>
-                  <li>
-                    <a href="#beneficiaries" class="toc-h2 toc-link" data-title="beneficiaries">Beneficiaries</a>
-                  </li>
-                  <li>
-                    <a href="#operations" class="toc-h2 toc-link" data-title="operations">Operations</a>
+                    <a href="#download-charities" class="toc-h2 toc-link" data-title="Download Charities">Download Charities</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#ordering-results" class="toc-h1 toc-link" data-title="ordering-results">Ordering Results</a>
-          </li>
-          <li>
-            <a href="#pagination-with-skip-amp-limit" class="toc-h1 toc-link" data-title="pagination-with-skip-amp-limit">Pagination with skip &amp; limit</a>
-          </li>
-          <li>
-            <a href="#schema" class="toc-h1 toc-link" data-title="schema">Schema</a>
-          </li>
-          <li>
-            <a href="#id-lookup" class="toc-h1 toc-link" data-title="id-lookup">ID Lookup</a>
+            <a href="#filter-id-lookups" class="toc-h1 toc-link" data-title="Filter ID Lookups">Filter ID Lookups</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#cause-id-lookup" class="toc-h2 toc-link" data-title="cause-id-lookup">Cause ID Lookup</a>
+                    <a href="#cause-id-lookup" class="toc-h2 toc-link" data-title="Cause ID Lookup">Cause ID Lookup</a>
                   </li>
                   <li>
-                    <a href="#beneficiary-id-lookup" class="toc-h2 toc-link" data-title="beneficiary-id-lookup">Beneficiary ID Lookup</a>
+                    <a href="#beneficiary-id-lookup" class="toc-h2 toc-link" data-title="Beneficiary ID Lookup">Beneficiary ID Lookup</a>
                   </li>
                   <li>
-                    <a href="#operation-id-lookup" class="toc-h2 toc-link" data-title="operation-id-lookup">Operation ID Lookup</a>
+                    <a href="#operation-id-lookup" class="toc-h2 toc-link" data-title="Operation ID Lookup">Operation ID Lookup</a>
                   </li>
                   <li>
-                    <a href="#area-of-operation-id-lookup" class="toc-h2 toc-link" data-title="area-of-operation-id-lookup">Area of Operation ID Lookup</a>
+                    <a href="#funder-id-lookup" class="toc-h2 toc-link" data-title="Funder ID Lookup">Funder ID Lookup</a>
+                  </li>
+                  <li>
+                    <a href="#area-of-operation-id-lookup" class="toc-h2 toc-link" data-title="Area of Operation ID Lookup">Area of Operation ID Lookup</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
-      </div>
+      </ul>
         <ul class="toc-footer">
+            <li><a href='https://charitybase.uk/api-portal'>Sign Up for an API Key</a></li>
+            <li><a href='https://charitybase.uk'>CharityBase Web App</a></li>
+            <li><a href='https://charitybase.uk/about#licence'>Licence</a></li>
             <li><a href='https://github.com/charity-base/charity-base-docs'>Edit on GitHub</a></li>
         </ul>
     </div>
@@ -290,498 +276,222 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>CharityBase is a database, API and web platform which provides public information regarding the activities, locations and finances of 168,213 currently registered charities in England and Wales.</p>
+<p>The CharityBase REST API provides public information regarding the activities, locations and finances of all currently registered charities in England and Wales.  The API powers the <a href="https://charitybase.uk">CharityBase Web App</a> - see the <a href="https://charitybase.uk/about">About</a> page for more information.</p>
 
-<p>The bulk of the database is formed by combining <a href="http://data.charitycommission.gov.uk/">files</a> published by the Charity Commission (released under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>) with additional fields included in their charity search websites (<a href="http://apps.charitycommission.gov.uk/showcharity/registerofcharities/RegisterHomePage.aspx">legacy</a> and <a href="http://beta.charitycommission.gov.uk/">current</a>). This data is then restructured, cleaned and supplemented with content scraped from other sources.  It&#39;s updated every month.</p>
-<h1 id='endpoint'>Endpoint</h1>
+<p>To get started, sign up for an API key from the <a href="https://charitybase.uk/api-portal">API Portal</a>.</p>
+<h1 id='charities'>Charities</h1><h2 id='list-charities'>List Charities</h2>
 <blockquote>
-<p>The charities endpoint:</p>
+<p>E.g. list charities with income £10k - £100k:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>GET https://charitybase.uk/api/v2.0.0/charities
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://charitybase.uk/api/v4.0.1/charities</span><span class="se">\</span><span class="s2">
+?apiKey=my-api-key</span><span class="se">\</span><span class="s2">
+&amp;fields=income.latest.total</span><span class="se">\</span><span class="s2">
+&amp;incomeRange=10000,100000</span><span class="se">\</span><span class="s2">
+&amp;sort=income.latest.total:desc"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">charityBase</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'charity-base'</span><span class="p">)({</span>
+  <span class="na">apiKey</span><span class="p">:</span> <span class="s1">'my-api-key'</span>
+<span class="p">})</span>
+
+<span class="kr">const</span> <span class="nx">responsePromise</span> <span class="o">=</span> <span class="nx">charityBase</span><span class="p">.</span><span class="nx">charity</span><span class="p">.</span><span class="nx">list</span><span class="p">({</span>
+  <span class="na">fields</span><span class="p">:</span> <span class="p">[</span><span class="s1">'income.latest.total'</span><span class="p">],</span>
+  <span class="na">incomeRange</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">],</span>
+  <span class="na">sort</span><span class="p">:</span> <span class="p">[</span><span class="s1">'income.latest.total:desc'</span><span class="p">],</span>
+<span class="p">})</span>
 </code></pre>
 <blockquote>
-<p>Successful JSON response (status 200):</p>
+<p>Example Response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"charities"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v4.0.1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2.0.0"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>The CharityBase API has one endpoint which returns a list of registered charities.  By specifying query string parameters in the URL you can:</p>
-
-<ul>
-<li>Choose which properties are returned for each charity.</li>
-<li>Filter, sort and page through the results.</li>
-</ul>
-
-<p>Usage of the URL parameters is explained in the following documentation.</p>
-<h1 id='projecting-properties'>Projecting Properties</h1>
-<blockquote>
-<p>Request each charity&#39;s activities and income:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?fields<span class="o">=</span>activities,income.latest.total
-</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"charities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The British Council"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"charityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-209131"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"GB-CHC"</span><span class="p">:</span><span class="w"> </span><span class="mi">209131</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"activities"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The British Council creates..."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"income"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"latest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1076893479</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"income"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"latest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">99997</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Feinmann Trust"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"GB-CHC"</span><span class="p">:</span><span class="w"> </span><span class="mi">1045149</span><span class="p">,</span><span class="w"> </span><span class="s2">"charityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1045149"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>By default the returned list of charities only contains the <code>name</code> and <code>ids</code> of each charity.  Additional properties can be requested using the <code>fields</code> parameter.  It expects a comma-separated list of the properties defined in <a href="#schema">schema</a>.  Nested properties are allowed.</p>
+<p>Returns a list of registered charities.  By specifying query string parameters you can:</p>
 
+<ul>
+<li>Choose which fields are returned on each charity</li>
+<li>Filter, sort and page through the results</li>
+</ul>
+<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
-<th>URL Parameter</th>
+<th>Parameter</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td><code>apiKey</code></td>
+<td>Key obtained from the <a href="https://charitybase.uk/api-portal">API Portal</a> (required)</td>
+</tr>
+<tr>
 <td><code>fields</code></td>
-<td>Comma-separated list of properties.</td>
+<td>Comma-separated list of properties (<code>ids</code> &amp; <code>name</code> are always returned)</td>
+</tr>
+<tr>
+<td><code>ids.GB-CHC</code></td>
+<td>List of England &amp; Wales charity number</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>Query string for full-text search</td>
+</tr>
+<tr>
+<td><code>incomeRange</code></td>
+<td>List of the form <code>[min, max]</code></td>
+</tr>
+<tr>
+<td><code>addressWithin</code></td>
+<td>List of coords the form <code>[maxLat, minLon, minLat, maxLon]</code></td>
+</tr>
+<tr>
+<td><code>areasOfOperation.id</code></td>
+<td>List of <a href="#area-of-operation-id-lookup">area of operation ids</a></td>
+</tr>
+<tr>
+<td><code>causes.id</code></td>
+<td>List of <a href="#cause-id-lookup">cause ids</a></td>
+</tr>
+<tr>
+<td><code>beneficiaries.id</code></td>
+<td>List of <a href="#beneficiary-id-lookup">beneficiary ids</a></td>
+</tr>
+<tr>
+<td><code>operations.id</code></td>
+<td>List of <a href="#operation-id-lookup">operation ids</a></td>
+</tr>
+<tr>
+<td><code>funders</code></td>
+<td>List of <a href="#funder-id-lookup">funder ids</a></td>
+</tr>
+<tr>
+<td><code>hasGrant</code></td>
+<td>Boolean of whether charities have received public grant or not</td>
+</tr>
+<tr>
+<td><code>grantDateRange</code></td>
+<td>List of the form <code>[YYYY-MM-DD, YYYY-MM-DD]</code></td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>List of fields to sort by with optional <code>:asc</code> or <code>:desc</code> suffixes</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>Number of results per request (default <code>10</code>, max <code>50</code>)</td>
+</tr>
+<tr>
+<td><code>skip</code></td>
+<td>Number of results to skip (default <code>0</code>)</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
+  See the repo <a href='https://github.com/charity-base/charity-base-schema'>charity-base-schema</a> for the full list of field options.  Nested properties are allowed.
+</aside>
+
+<aside class="notice">
   Use <code>fields=*</code> to return all properties from the schema.  Think carefully before doing this as it significantly increases the response size.
 </aside>
-<h1 id='filtering-results'>Filtering Results</h1><h2 id='charity-number'>Charity Number</h2>
+<h2 id='count-charities'>Count Charities</h2>
 <blockquote>
-<p>England &amp; Wales registration number 209131:</p>
+<p>E.g. count Big Lottery funded animal charities operating in North Yorkshire:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>?ids.GB-CHC<span class="o">=</span>209131
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://charitybase.uk/api/v4.0.1/count-charities</span><span class="se">\</span><span class="s2">
+?apiKey=my-api-key</span><span class="se">\</span><span class="s2">
+&amp;funders=360G-blf</span><span class="se">\</span><span class="s2">
+&amp;causes.id=111</span><span class="se">\</span><span class="s2">
+&amp;areasOfOperation.id=B-122"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">charityBase</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'charity-base'</span><span class="p">)({</span>
+  <span class="na">apiKey</span><span class="p">:</span> <span class="s1">'my-api-key'</span>
+<span class="p">})</span>
+
+<span class="kr">const</span> <span class="nx">responsePromise</span> <span class="o">=</span> <span class="nx">charityBase</span><span class="p">.</span><span class="nx">charity</span><span class="p">.</span><span class="nx">count</span><span class="p">({</span>
+  <span class="s1">'funders'</span><span class="p">:</span> <span class="s1">'360G-blf'</span><span class="p">,</span>
+  <span class="s1">'causes.id'</span><span class="p">:</span> <span class="p">[</span><span class="mi">111</span><span class="p">],</span>
+  <span class="s1">'areasOfOperation.id'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B-122'</span><span class="p">],</span>
+<span class="p">})</span>
 </code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v4.0.1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the count of all registered charities matching the specified query.</p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
-<th>URL Parameter</th>
+<th>Parameter</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>apiKey</code></td>
+<td>Key obtained from the <a href="https://charitybase.uk/api-portal">API Portal</a> (required)</td>
+</tr>
 <tr>
 <td><code>ids.GB-CHC</code></td>
-<td>Charity Commission number</td>
+<td>List of England &amp; Wales charity number</td>
 </tr>
-</tbody></table>
-<h2 id='search'>Search</h2>
-<blockquote>
-<p>Search for &quot;tower hamlets&quot;:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?search<span class="o">=</span>tower%20hamlets
-</code></pre>
-<p>Searches over many text fields of each charity with higher weight given to the charity&#39;s names.</p>
-
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td><code>search</code></td>
-<td>Phrase to search across all text fields</td>
+<td>Query string for full-text search</td>
 </tr>
-</tbody></table>
-<h2 id='income'>Income</h2>
-<blockquote>
-<p>Income between £100k and £5m:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?incomeRange<span class="o">=</span>100000,5000000
-</code></pre>
-<blockquote>
-<p>Income greater than £100m:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?incomeRange<span class="o">=</span>100000000,
-</code></pre>
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td><code>incomeRange</code></td>
-<td>Comma-separated pair of the form <code>min_incl,max_excl</code></td>
+<td>List of the form <code>[minInclusive, maxExclusive]</code></td>
 </tr>
-</tbody></table>
-<h2 id='location'>Location</h2><h3 id='registered-address'>Registered Address</h3>
-<blockquote>
-<p>Charities within 5km of Manchester city centre:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?addressWithin<span class="o">=</span>5km,53.4723272,-2.2935021
-</code></pre>
-<p>Request charities whose addresses are in close proximity to a point using the <code>addressWithin</code> parameter.</p>
-
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td><code>addressWithin</code></td>
-<td>Comma-separated list of the form <code>distance,latitude,longitude</code></td>
+<td>List of coords the form <code>[maxLat, minLon, minLat, maxLon]</code></td>
 </tr>
-</tbody></table>
-<h3 id='areas-of-operation'>Areas of Operation</h3>
-<blockquote>
-<p>Charities operating in North Yorkshire and/or East Riding Of Yorkshire:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?areasOfOperation.id<span class="o">=</span>B-122,B-147
-</code></pre>
-<p>Find charities which operate in <a href="#area-of-operation-id-lookup">particular areas</a>.</p>
-
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td><code>areasOfOperation.id</code></td>
-<td>Comma-separated list of area IDs.</td>
+<td>List of <a href="#area-of-operation-id-lookup">area of operation ids</a></td>
 </tr>
-</tbody></table>
-<h2 id='causes'>Causes</h2>
-<blockquote>
-<p>Charities working with animals:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?causes.id<span class="o">=</span>111
-</code></pre>
-<p>Find charities which work on <a href="#cause-id-lookup">particular causes</a>.</p>
-
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td><code>causes.id</code></td>
-<td>Comma-separated list of cause IDs.</td>
+<td>List of <a href="#cause-id-lookup">cause ids</a></td>
 </tr>
-</tbody></table>
-<h2 id='beneficiaries'>Beneficiaries</h2>
-<blockquote>
-<p>Charities helping young and/or old people:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?beneficiaries.id<span class="o">=</span>201,202
-</code></pre>
-<p>Find charities which help <a href="#beneficiary-id-lookup">particular groups</a>.</p>
-
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td><code>beneficiaries.id</code></td>
-<td>Comma-separated list of beneficiary IDs.</td>
+<td>List of <a href="#beneficiary-id-lookup">beneficiary ids</a></td>
 </tr>
-</tbody></table>
-<h2 id='operations'>Operations</h2>
-<blockquote>
-<p>Charities making grants to individuals and/or organisations:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?operations.id<span class="o">=</span>301,302
-</code></pre>
-<p>Find charities which undertake <a href="#operation-id-lookup">particular operations</a>.</p>
-
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td><code>operations.id</code></td>
-<td>Comma-separated list of operation IDs.</td>
+<td>List of <a href="#operation-id-lookup">operation ids</a></td>
+</tr>
+<tr>
+<td><code>funders</code></td>
+<td>List of <a href="#funder-id-lookup">funder ids</a></td>
+</tr>
+<tr>
+<td><code>hasGrant</code></td>
+<td>Boolean of whether charities have received public grant or not</td>
+</tr>
+<tr>
+<td><code>grantDateRange</code></td>
+<td>List of the form <code>[YYYY-MM-DD, YYYY-MM-DD]</code></td>
 </tr>
 </tbody></table>
-<h1 id='ordering-results'>Ordering Results</h1>
+<h2 id='aggregate-charities'>Aggregate Charities</h2>
+<p>This endpoint is currently private.</p>
+<h2 id='download-charities'>Download Charities</h2>
+<p>This endpoint is currently private.</p>
+<h1 id='filter-id-lookups'>Filter ID Lookups</h1><h2 id='cause-id-lookup'>Cause ID Lookup</h2>
 <blockquote>
-<p>Sort charities by most recently registered:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?sort<span class="o">=</span>ids.GB-CHC:desc
-</code></pre>
-<blockquote>
-<p>Sort charities by decreasing income:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?sort<span class="o">=</span>income.latest.total:desc
-</code></pre>
-<p>By default results are ordered by relevance (if the <code>search</code> parameter is provided), followed by descending income.  This behaviour can be overridden using the <code>sort</code> parameter.</p>
-
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>sort</code></td>
-<td>Name of sort field (optionally suffixed with <code>:asc</code> or <code>:desc</code>)</td>
-</tr>
-</tbody></table>
-<h1 id='pagination-with-skip-amp-limit'>Pagination with skip &amp; limit</h1>
-<blockquote>
-<p>Return the third page of results with 30 charities per request:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>?limit<span class="o">=</span>30&amp;skip<span class="o">=</span>60
-</code></pre>
-<p>Set the number of charities returned for each request with the <code>limit</code> parameter.  Its default value is <code>10</code> and the maximum allowed value is <code>50</code>.</p>
-
-<p>Page through results using the <code>skip</code> parameter.  It takes any positive integer but choose multiples of <code>limit</code> to get sequential pages.</p>
-
-<table><thead>
-<tr>
-<th>URL Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>limit</code></td>
-<td>Number of results to return per request.</td>
-</tr>
-<tr>
-<td><code>skip</code></td>
-<td>Number of results to skip.</td>
-</tr>
-</tbody></table>
-<h1 id='schema'>Schema</h1>
-<blockquote>
-<p>Mongoose schema object:</p>
-</blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="s2">"regulator"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"type"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="s2">"enum"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"GB-CHC"</span><span class="p">,</span> <span class="s2">"GB-SC"</span><span class="p">,</span> <span class="s2">"GB-NIC"</span><span class="p">]</span> <span class="p">},</span>
-  <span class="s2">"ids"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"charityId"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"GB-CHC"</span><span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-  <span class="p">},</span>
-  <span class="s2">"name"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="s2">"isRegistered"</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
-  <span class="s2">"governingDoc"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="s2">"areaOfBenefit"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="s2">"contact"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"email"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"person"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"phone"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"postcode"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"address"</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
-    <span class="s2">"geo"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"postcode"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"quality"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-      <span class="s2">"eastings"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-      <span class="s2">"northings"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-      <span class="s2">"country"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"nhs_ha"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"longitude"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-      <span class="s2">"latitude"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-      <span class="s2">"european_electoral_region"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"primary_care_trust"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"region"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"lsoa"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"msoa"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"incode"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"outcode"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"parliamentary_constituency"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"admin_district"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"parish"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"admin_county"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"admin_ward"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"ccg"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"nuts"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"codes"</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"admin_district"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-        <span class="s2">"admin_county"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-        <span class="s2">"admin_ward"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-        <span class="s2">"parish"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-        <span class="s2">"parliamentary_constituency"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-        <span class="s2">"ccg"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-        <span class="s2">"nuts"</span> <span class="p">:</span> <span class="nb">String</span>
-      <span class="p">},</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="s2">"geo_coords"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="s2">"isWelsh"</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
-  <span class="s2">"trustees"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"incorporated"</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
-    <span class="s2">"names"</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
-  <span class="p">},</span>
-  <span class="s2">"website"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="s2">"isSchool"</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
-  <span class="s2">"income"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"latest"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"date"</span><span class="p">:</span> <span class="nb">Date</span><span class="p">,</span>
-      <span class="s2">"total"</span><span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s2">"annual"</span><span class="p">:</span> <span class="p">[{</span>
-      <span class="s2">"financialYear"</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"begin"</span> <span class="p">:</span> <span class="nb">Date</span><span class="p">,</span>
-        <span class="s2">"end"</span> <span class="p">:</span> <span class="nb">Date</span><span class="p">,</span>
-      <span class="p">},</span>
-      <span class="s2">"income"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-      <span class="s2">"expend"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-    <span class="p">}],</span>
-  <span class="p">},</span>
-  <span class="s2">"fyend"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="s2">"companiesHouseNumber"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="s2">"areasOfOperation"</span><span class="p">:</span> <span class="p">[{</span>
-    <span class="s2">"id"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"parentId"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"name"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"alternativeName"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"locationType"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"isWelsh"</span> <span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
-  <span class="p">}],</span>
-  <span class="s2">"causes"</span><span class="p">:</span> <span class="p">[{</span>
-    <span class="s2">"id"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-    <span class="s2">"name"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="p">}],</span>
-  <span class="s2">"beneficiaries"</span><span class="p">:</span> <span class="p">[{</span>
-    <span class="s2">"id"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-    <span class="s2">"name"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="p">}],</span>
-  <span class="s2">"operations"</span><span class="p">:</span> <span class="p">[{</span>
-    <span class="s2">"id"</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-    <span class="s2">"name"</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="p">}],</span>
-  <span class="s2">"activities"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-  <span class="s2">"subsidiaries"</span><span class="p">:</span> <span class="p">[{</span>
-    <span class="s2">"name"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"isRegistered"</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
-    <span class="s2">"governingDoc"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"areaOfBenefit"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="s2">"contact"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"email"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"person"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"phone"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"postcode"</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="s2">"address"</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
-    <span class="p">},</span>
-  <span class="p">}],</span>
-  <span class="s2">"alternativeNames"</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
-  <span class="s2">"people"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"trustees"</span><span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-    <span class="s2">"employees"</span><span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-    <span class="s2">"volunteers"</span><span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">}</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Top-level property</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>regulator</td>
-<td>Code for the government charity regulator.</td>
-</tr>
-<tr>
-<td>ids</td>
-<td>Charity Identifier object.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Registered charity name.</td>
-</tr>
-<tr>
-<td>isRegistered</td>
-<td><code>true</code> if charity still registered.</td>
-</tr>
-<tr>
-<td>governingDoc</td>
-<td>History of governing document.</td>
-</tr>
-<tr>
-<td>areaOfBenefit</td>
-<td>Free text field describing the geographical area the charity benefits.</td>
-</tr>
-<tr>
-<td>contact</td>
-<td>Object detailing the point of contact and registered address geolocation.</td>
-</tr>
-<tr>
-<td>geo_coords</td>
-<td>String of the form <code>latitude,longitude</code>.</td>
-</tr>
-<tr>
-<td>isWelsh</td>
-<td><code>true</code> if charity is Welsh.</td>
-</tr>
-<tr>
-<td>trustees</td>
-<td>Object listing names of Trustees and whether or not one is an incorporated entity.</td>
-</tr>
-<tr>
-<td>website</td>
-<td>URL of charity website.</td>
-</tr>
-<tr>
-<td>isSchool</td>
-<td><code>true</code> if charity is a school.</td>
-</tr>
-<tr>
-<td>income</td>
-<td>Object detailing income &amp; expenditure from recent years.</td>
-</tr>
-<tr>
-<td>fyend</td>
-<td>The charity&#39;s financial year end date in the format <code>DDMM</code>.</td>
-</tr>
-<tr>
-<td>companiesHouseNumber</td>
-<td>Companies House identifier (if charity is registered as a company in the UK).</td>
-</tr>
-<tr>
-<td>areasOfOperation</td>
-<td>List of areas in which the charity operates.</td>
-</tr>
-<tr>
-<td>causes</td>
-<td>List of causes the charity is concerned with.</td>
-</tr>
-<tr>
-<td>beneficiaries</td>
-<td>List of beneficiaries the charity helps.</td>
-</tr>
-<tr>
-<td>operations</td>
-<td>List of operations the charity undertakes.</td>
-</tr>
-<tr>
-<td>activities</td>
-<td>Free text field describing the aims and activities of the charity.</td>
-</tr>
-<tr>
-<td>subsidiaries</td>
-<td>List of subsidiary groups.</td>
-</tr>
-<tr>
-<td>alternativeNames</td>
-<td>List of all registered working names of the charity.</td>
-</tr>
-<tr>
-<td>people</td>
-<td>Object detailing numbers of trustees, employees &amp; volunteers.</td>
-</tr>
-</tbody></table>
-<h1 id='id-lookup'>ID Lookup</h1><h2 id='cause-id-lookup'>Cause ID Lookup</h2>
-<blockquote>
-<p>JSON causes</p>
+<p>JSON Causes</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General charitable purposes"</span><span class="w"> </span><span class="p">},</span><span class="w">
@@ -803,8 +513,6 @@
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">117</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other charitable purposes"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>Options that elements in the <code>causes</code> property list can take:</p>
-
 <table><thead>
 <tr>
 <th>Cause ID</th>
@@ -882,7 +590,7 @@
 </tbody></table>
 <h2 id='beneficiary-id-lookup'>Beneficiary ID Lookup</h2>
 <blockquote>
-<p>JSON beneficiaries</p>
+<p>JSON Beneficiaries</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Children/young people"</span><span class="w"> </span><span class="p">},</span><span class="w">
@@ -894,8 +602,6 @@
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">207</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The general public/mankind"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>Options that elements in the <code>beneficiaries</code> property list can take:</p>
-
 <table><thead>
 <tr>
 <th>Beneficiary ID</th>
@@ -933,7 +639,7 @@
 </tbody></table>
 <h2 id='operation-id-lookup'>Operation ID Lookup</h2>
 <blockquote>
-<p>JSON operations</p>
+<p>JSON Operations</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">301</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Makes grants to individuals"</span><span class="w"> </span><span class="p">},</span><span class="w">
@@ -948,8 +654,6 @@
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">310</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other charitable activities"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>Options that elements in the <code>operations</code> property list can take:</p>
-
 <table><thead>
 <tr>
 <th>Operation ID</th>
@@ -997,9 +701,631 @@
 <td>Other charitable activities</td>
 </tr>
 </tbody></table>
+<h2 id='funder-id-lookup'>Funder ID Lookup</h2>
+<blockquote>
+<p>JSON Funders</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1000147"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A B Charitable Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360G-ArcadiaFund"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARCADIA"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1115476"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barrow Cadbury Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-802052"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BBC Children in Need"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360G-blf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Big Lottery Fund"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-LAE-BIR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Birmingham City Council"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1164021"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Blagrave Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1143711"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheshire Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1035628"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City Bridge Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-274100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Clothworkers Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-IP00525R"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Co-operative Group"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-326568 "</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comic Relief"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1111600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Community Foundation for Surrey"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-02273708"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Community Foundation serving Tyne &amp; Wear and Northumberland"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-309671"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Culham St Gabriel</span><span class="se">\'</span><span class="s2">s Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1078217"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The David &amp; Elaine Potter Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-GOR-D9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Department for Transport"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-07991677"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Dulverton Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1140372"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Dunhill Medical Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-200051"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esmée Fairbairn Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1052061"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Essex Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1123081"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Fore"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-230260"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garfield Weston Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-251988"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gatsby Charitable Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-LAE-GLA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greater London Authority"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1045304"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Heart Of England Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-230102"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Henry Smith Charity "</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1075920"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indigo Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-253481"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Moores Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1093844"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Joseph Rank Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-210037"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joseph Rowntree Charitable Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-210169"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joseph Rowntree Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1111360"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kingston Voluntary Action"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-295157"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LandAid Charitable Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1107583"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lankelly Chase Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-327114"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lloyds Bank Foundation for England and Wales"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-LAE-BNE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London Borough of Barnet"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-LAE-SWK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London Borough of Southwark"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-03037449"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London Councils"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1145921"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Macc"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1164703"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masonic Charitable Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1158914"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Millfield House Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-GOR-D18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ministry of Justice"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1065552"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nationwide Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1144091"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nesta"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-03416658"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Northern Rock Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-RS007018"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"One Manchester"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-LAE-OXO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oxford City Council"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1151621"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oxfordshire Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1102927"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paul Hamlyn Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1009195"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pears Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1159982"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Power to Change "</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1080418"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quartet Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-SC-SC012710"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R S Macdonald Charitable Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1156300"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Road Safety Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-SC-SC002970"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Robertson Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-226446"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seafarers UK"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-04530979"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somerset Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-RC000766"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sport England"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1010656"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Staples Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1113226"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sussex Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-328524"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tedworth Charitable Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1059652"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Three Guineas Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-COH-04831118"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trafford Housing Trust Social Investment"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-LAE-TRF"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trafford Metropolitan Borough Council"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1089893"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True Colours Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1105580"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Tudor Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1081124"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tuixen Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1166471"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Two Ridings Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1103731"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United St Saviour</span><span class="se">\'</span><span class="s2">s Charity"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1161290"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Virgin Money Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-312800"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walcot Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1123126"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wiltshire Community Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1156077"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wolfson Foundation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-299963"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Woodward Charitable Trust"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB-CHC-1133342"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZING"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Funder ID</th>
+<th>Funder Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GB-CHC-1000147</td>
+<td>A B Charitable Trust</td>
+</tr>
+<tr>
+<td>360G-ArcadiaFund</td>
+<td>ARCADIA</td>
+</tr>
+<tr>
+<td>GB-CHC-1115476</td>
+<td>Barrow Cadbury Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-802052</td>
+<td>BBC Children in Need</td>
+</tr>
+<tr>
+<td>360G-blf</td>
+<td>The Big Lottery Fund</td>
+</tr>
+<tr>
+<td>GB-LAE-BIR</td>
+<td>Birmingham City Council</td>
+</tr>
+<tr>
+<td>GB-CHC-1164021</td>
+<td>The Blagrave Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1143711</td>
+<td>Cheshire Community Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1035628</td>
+<td>City Bridge Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-274100</td>
+<td>The Clothworkers Foundation</td>
+</tr>
+<tr>
+<td>GB-COH-IP00525R</td>
+<td>Co-operative Group</td>
+</tr>
+<tr>
+<td>GB-CHC-326568</td>
+<td>Comic Relief</td>
+</tr>
+<tr>
+<td>GB-CHC-1111600</td>
+<td>Community Foundation for Surrey</td>
+</tr>
+<tr>
+<td>GB-COH-02273708</td>
+<td>Community Foundation serving Tyne &amp; Wear and Northumberland</td>
+</tr>
+<tr>
+<td>GB-CHC-309671</td>
+<td>Culham St Gabriel\&#39;s Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1078217</td>
+<td>The David &amp; Elaine Potter Foundation</td>
+</tr>
+<tr>
+<td>GB-GOR-D9</td>
+<td>Department for Transport</td>
+</tr>
+<tr>
+<td>GB-COH-07991677</td>
+<td>The Dulverton Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1140372</td>
+<td>The Dunhill Medical Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-200051</td>
+<td>Esmée Fairbairn Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1052061</td>
+<td>Essex Community Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1123081</td>
+<td>The Fore</td>
+</tr>
+<tr>
+<td>GB-CHC-230260</td>
+<td>Garfield Weston Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-251988</td>
+<td>Gatsby Charitable Foundation</td>
+</tr>
+<tr>
+<td>GB-LAE-GLA</td>
+<td>Greater London Authority</td>
+</tr>
+<tr>
+<td>GB-CHC-1045304</td>
+<td>Heart Of England Community Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-230102</td>
+<td>The Henry Smith Charity</td>
+</tr>
+<tr>
+<td>GB-CHC-1075920</td>
+<td>Indigo Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-253481</td>
+<td>John Moores Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1093844</td>
+<td>The Joseph Rank Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-210037</td>
+<td>Joseph Rowntree Charitable Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-210169</td>
+<td>Joseph Rowntree Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1111360</td>
+<td>Kingston Voluntary Action</td>
+</tr>
+<tr>
+<td>GB-CHC-295157</td>
+<td>LandAid Charitable Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1107583</td>
+<td>Lankelly Chase Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-327114</td>
+<td>Lloyds Bank Foundation for England and Wales</td>
+</tr>
+<tr>
+<td>GB-LAE-BNE</td>
+<td>London Borough of Barnet</td>
+</tr>
+<tr>
+<td>GB-LAE-SWK</td>
+<td>London Borough of Southwark</td>
+</tr>
+<tr>
+<td>GB-COH-03037449</td>
+<td>London Councils</td>
+</tr>
+<tr>
+<td>GB-CHC-1145921</td>
+<td>Macc</td>
+</tr>
+<tr>
+<td>GB-CHC-1164703</td>
+<td>Masonic Charitable Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1158914</td>
+<td>Millfield House Foundation</td>
+</tr>
+<tr>
+<td>GB-GOR-D18</td>
+<td>Ministry of Justice</td>
+</tr>
+<tr>
+<td>GB-CHC-1065552</td>
+<td>Nationwide Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1144091</td>
+<td>Nesta</td>
+</tr>
+<tr>
+<td>GB-COH-03416658</td>
+<td>Northern Rock Foundation</td>
+</tr>
+<tr>
+<td>GB-COH-RS007018</td>
+<td>One Manchester</td>
+</tr>
+<tr>
+<td>GB-LAE-OXO</td>
+<td>Oxford City Council</td>
+</tr>
+<tr>
+<td>GB-CHC-1151621</td>
+<td>Oxfordshire Community Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1102927</td>
+<td>Paul Hamlyn Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1009195</td>
+<td>Pears Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1159982</td>
+<td>Power to Change</td>
+</tr>
+<tr>
+<td>GB-CHC-1080418</td>
+<td>Quartet Community Foundation</td>
+</tr>
+<tr>
+<td>GB-SC-SC012710</td>
+<td>R S Macdonald Charitable Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1156300</td>
+<td>Road Safety Trust</td>
+</tr>
+<tr>
+<td>GB-SC-SC002970</td>
+<td>The Robertson Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-226446</td>
+<td>Seafarers UK</td>
+</tr>
+<tr>
+<td>GB-COH-04530979</td>
+<td>Somerset Community Foundation</td>
+</tr>
+<tr>
+<td>GB-COH-RC000766</td>
+<td>Sport England</td>
+</tr>
+<tr>
+<td>GB-CHC-1010656</td>
+<td>Staples Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1113226</td>
+<td>Sussex Community Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-328524</td>
+<td>Tedworth Charitable Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1059652</td>
+<td>Three Guineas Trust</td>
+</tr>
+<tr>
+<td>GB-COH-04831118</td>
+<td>Trafford Housing Trust Social Investment</td>
+</tr>
+<tr>
+<td>GB-LAE-TRF</td>
+<td>Trafford Metropolitan Borough Council</td>
+</tr>
+<tr>
+<td>GB-CHC-1089893</td>
+<td>True Colours Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1105580</td>
+<td>The Tudor Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1081124</td>
+<td>Tuixen Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1166471</td>
+<td>Two Ridings Community Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1103731</td>
+<td>United St Saviour\&#39;s Charity</td>
+</tr>
+<tr>
+<td>GB-CHC-1161290</td>
+<td>Virgin Money Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-312800</td>
+<td>Walcot Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1123126</td>
+<td>Wiltshire Community Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-1156077</td>
+<td>Wolfson Foundation</td>
+</tr>
+<tr>
+<td>GB-CHC-299963</td>
+<td>Woodward Charitable Trust</td>
+</tr>
+<tr>
+<td>GB-CHC-1133342</td>
+<td>ZING</td>
+</tr>
+</tbody></table>
 <h2 id='area-of-operation-id-lookup'>Area of Operation ID Lookup</h2>
 <blockquote>
-<p>JSON areas of operation</p>
+<p>JSON Areas of Operation</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A-1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Throughout England And Wales"</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
@@ -1429,9 +1755,7 @@
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D-290"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wallis And Futuna"</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D-293"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Republic Of South Sudan"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>Options that elements in the <code>areasOfOperation</code> property list can take:</p>
-<h3 id='uk-division'>UK Division</h3>
+</span></code></pre><h3 id='uk-division'>UK Division</h3>
 <table><thead>
 <tr>
 <th>Area ID</th>
@@ -3163,10 +3487,14 @@
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your request failed because..."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Failed requests receive status code <code>400</code> and a JSON message.</p>
+<p>Failed requests will receive an error message response with a <code>40x</code> status.</p>
 
       </div>
       <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
       </div>
     </div>
   </body>
