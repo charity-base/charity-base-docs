@@ -6,4 +6,4 @@
 }
 ```
 
-Failed requests receive status code `400` and a JSON message.
+Failed requests will receive an error message response with a `40x` status.
