@@ -1,8 +1,14 @@
 ---
 title: CharityBase Docs
 
+language_tabs:
+  - shell
+  - javascript
+
 toc_footers:
   - <a href='https://charitybase.uk/api-portal'>Sign Up for an API Key</a>
+  - <a href='https://charitybase.uk'>CharityBase Web App</a>
+  - <a href='https://charitybase.uk/about#licence'>Licence</a>
   - <a href='https://github.com/charity-base/charity-base-docs'>Edit on GitHub</a>
 
 includes:
@@ -13,393 +19,159 @@ search: true
 
 # Introduction
 
-CharityBase is a database, API and web platform which provides public information regarding the activities, locations and finances of 168,213 currently registered charities in England and Wales.
+The CharityBase REST API provides public information regarding the activities, locations and finances of all currently registered charities in England and Wales.  The API powers the [CharityBase Web App](https://charitybase.uk) - see the [About](https://charitybase.uk/about) page for more information.
 
-The bulk of the database is formed by combining [files](http://data.charitycommission.gov.uk/) published by the Charity Commission (released under [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)) with additional fields included in their charity search websites ([legacy](http://apps.charitycommission.gov.uk/showcharity/registerofcharities/RegisterHomePage.aspx) and [current](http://beta.charitycommission.gov.uk/)). This data is then restructured, cleaned and supplemented with content scraped from other sources.  It's updated every month.
+To get started, sign up for an API key from the [API Portal](https://charitybase.uk/api-portal).
 
-# Endpoint
+# Charities
 
-> The charities endpoint:
+## List Charities
+
+> E.g. list charities with income £10k - £100k:
 
 ```shell
-GET https://charitybase.uk/api/v2.0.0/charities
+curl "https://charitybase.uk/api/v4.0.1/charities\
+?apiKey=my-api-key\
+&fields=income.latest.total\
+&incomeRange=10000,100000\
+&sort=income.latest.total:desc"
 ```
 
-> Successful JSON response (status 200):
+```javascript
+const charityBase = require('charity-base')({
+  apiKey: 'my-api-key'
+})
+
+const responsePromise = charityBase.charity.list({
+  fields: ['income.latest.total'],
+  incomeRange: [10000, 100000],
+  sort: ['income.latest.total:desc'],
+})
+```
+
+> Example Response:
 
 ```json
 {
-  "charities": [{ ... }],
+  "version": "v4.0.1",
   "query": { ... },
-  "version": "v2.0.0"
-}
-```
-
-The CharityBase API has one endpoint which returns a list of registered charities.  By specifying query string parameters in the URL you can:
-
-* Choose which properties are returned for each charity.
-* Filter, sort and page through the results.
-
-Usage of the URL parameters is explained in the following documentation.
-
-# Projecting Properties
-
-> Request each charity's activities and income:
-
-```shell
-?fields=activities,income.latest.total
-```
-
-```json
-{
   "charities": [
     {
-      "name": "The British Council",
-      "ids": {
-        "charityId": "GB-CHC-209131",
-        "GB-CHC": 209131
-      },
-      "activities": "The British Council creates...",
-      "income": {
-        "latest": {
-          "total": 1076893479
-        }
-      }
+      "income": { "latest": { "total": 99997 } },
+      "name": "The Feinmann Trust",
+      "ids": { "GB-CHC": 1045149, "charityId": "GB-CHC-1045149" }
     },
     ...
-  ],
-  ...
+  ]
 }
 ```
 
-By default the returned list of charities only contains the `name` and `ids` of each charity.  Additional properties can be requested using the `fields` parameter.  It expects a comma-separated list of the properties defined in [schema](#schema).  Nested properties are allowed.
+Returns a list of registered charities.  By specifying query string parameters you can:
 
-URL Parameter | Description
---------- | -----------
-`fields` | Comma-separated list of properties.
+* Choose which fields are returned on each charity
+* Filter, sort and page through the results
+
+### Query Parameters
+
+Parameter               |  Description
+----------------------- | --------------
+`apiKey`                | Key obtained from the [API Portal](https://charitybase.uk/api-portal) (required)
+`fields`                | Comma-separated list of properties (`ids` & `name` are always returned)
+`ids.GB-CHC`            | List of England & Wales charity number
+`search`                | Query string for full-text search
+`incomeRange`           | List of the form `[min, max]`
+`addressWithin`         | List of coords the form `[maxLat, minLon, minLat, maxLon]`
+`areasOfOperation.id`   | List of [area of operation ids](#area-of-operation-id-lookup)
+`causes.id`             | List of [cause ids](#cause-id-lookup)
+`beneficiaries.id`      | List of [beneficiary ids](#beneficiary-id-lookup)
+`operations.id`         | List of [operation ids](#operation-id-lookup)
+`funders`               | List of [funder ids](#funder-id-lookup)
+`hasGrant`              | Boolean of whether charities have received public grant or not
+`grantDateRange`        | List of the form `[YYYY-MM-DD, YYYY-MM-DD]`
+`sort`                  | List of fields to sort by with optional `:asc` or `:desc` suffixes
+`limit`                 | Number of results per request (default `10`, max `50`)
+`skip`                  | Number of results to skip (default `0`)
+
+<aside class="notice">
+  See the repo <a href='https://github.com/charity-base/charity-base-schema'>charity-base-schema</a> for the full list of field options.  Nested properties are allowed.
+</aside>
 
 <aside class="notice">
   Use <code>fields=*</code> to return all properties from the schema.  Think carefully before doing this as it significantly increases the response size.
 </aside>
 
-# Filtering Results
+## Count Charities
 
-## Charity Number
-
-> England & Wales registration number 209131:
+> E.g. count Big Lottery funded animal charities operating in North Yorkshire:
 
 ```shell
-?ids.GB-CHC=209131
+curl "https://charitybase.uk/api/v4.0.1/count-charities\
+?apiKey=my-api-key\
+&funders=360G-blf\
+&causes.id=111\
+&areasOfOperation.id=B-122"
 ```
 
-URL Parameter | Description
---------- | -----------
-`ids.GB-CHC` | Charity Commission number
+```javascript
+const charityBase = require('charity-base')({
+  apiKey: 'my-api-key'
+})
 
-
-## Search
-
-> Search for "tower hamlets":
-
-```shell
-?search=tower%20hamlets
+const responsePromise = charityBase.charity.count({
+  'funders': '360G-blf',
+  'causes.id': [111],
+  'areasOfOperation.id': ['B-122'],
+})
 ```
 
-Searches over many text fields of each charity with higher weight given to the charity's names.
+> Example Response:
 
-URL Parameter | Description
---------- | -----------
-`search` | Phrase to search across all text fields
-
-
-## Income
-
-> Income between £100k and £5m:
-
-```shell
-?incomeRange=100000,5000000
+```json
+{
+  "version": "v4.0.1",
+  "query": { ... },
+  "count": 11
+}
 ```
 
-> Income greater than £100m:
+Returns the count of all registered charities matching the specified query.
 
-```shell
-?incomeRange=100000000,
-```
+### Query Parameters
 
-URL Parameter | Description
---------- | -----------
-`incomeRange` | Comma-separated pair of the form `min_incl,max_excl`
-
-
-## Location
-
-### Registered Address
-
-> Charities within 5km of Manchester city centre:
-
-```shell
-?addressWithin=5km,53.4723272,-2.2935021
-```
-
-Request charities whose addresses are in close proximity to a point using the `addressWithin` parameter.
-
-URL Parameter | Description
---------- | -----------
-`addressWithin` | Comma-separated list of the form `distance,latitude,longitude`
+Parameter               |  Description
+----------------------- | --------------
+`apiKey`                | Key obtained from the [API Portal](https://charitybase.uk/api-portal) (required)
+`ids.GB-CHC`            | List of England & Wales charity number
+`search`                | Query string for full-text search
+`incomeRange`           | List of the form `[minInclusive, maxExclusive]`
+`addressWithin`         | List of coords the form `[maxLat, minLon, minLat, maxLon]`
+`areasOfOperation.id`   | List of [area of operation ids](#area-of-operation-id-lookup)
+`causes.id`             | List of [cause ids](#cause-id-lookup)
+`beneficiaries.id`      | List of [beneficiary ids](#beneficiary-id-lookup)
+`operations.id`         | List of [operation ids](#operation-id-lookup)
+`funders`               | List of [funder ids](#funder-id-lookup)
+`hasGrant`              | Boolean of whether charities have received public grant or not
+`grantDateRange`        | List of the form `[YYYY-MM-DD, YYYY-MM-DD]`
 
 
-### Areas of Operation
+## Aggregate Charities
 
-> Charities operating in North Yorkshire and/or East Riding Of Yorkshire:
+This endpoint is currently private.
 
-```shell
-?areasOfOperation.id=B-122,B-147
-```
+## Download Charities
 
-
-Find charities which operate in [particular areas](#area-of-operation-id-lookup).
-
-URL Parameter | Description
---------- | -----------
-`areasOfOperation.id` | Comma-separated list of area IDs.
-
-
-## Causes
-
-> Charities working with animals:
-
-```shell
-?causes.id=111
-```
-
-Find charities which work on [particular causes](#cause-id-lookup).
-
-URL Parameter | Description
---------- | -----------
-`causes.id` | Comma-separated list of cause IDs.
-
-## Beneficiaries
-
-> Charities helping young and/or old people:
-
-```shell
-?beneficiaries.id=201,202
-```
-
-Find charities which help [particular groups](#beneficiary-id-lookup).
-
-URL Parameter | Description
---------- | -----------
-`beneficiaries.id` | Comma-separated list of beneficiary IDs.
-
-## Operations
-
-> Charities making grants to individuals and/or organisations:
-
-```shell
-?operations.id=301,302
-```
-
-Find charities which undertake [particular operations](#operation-id-lookup).
-
-URL Parameter | Description
---------- | -----------
-`operations.id` | Comma-separated list of operation IDs.
-
-
-# Ordering Results
-
-> Sort charities by most recently registered:
-
-```shell
-?sort=ids.GB-CHC:desc
-```
-
-> Sort charities by decreasing income:
-
-```shell
-?sort=income.latest.total:desc
-```
-
-By default results are ordered by relevance (if the `search` parameter is provided), followed by descending income.  This behaviour can be overridden using the `sort` parameter.
-
-URL Parameter | Description
---------- | -----------
-`sort` | Name of sort field (optionally suffixed with `:asc` or `:desc`)
-
-
-# Pagination with skip & limit
-
-> Return the third page of results with 30 charities per request:
-
-```shell
-?limit=30&skip=60
-```
-
-Set the number of charities returned for each request with the `limit` parameter.  Its default value is `10` and the maximum allowed value is `50`.
-
-Page through results using the `skip` parameter.  It takes any positive integer but choose multiples of `limit` to get sequential pages.
-
-URL Parameter | Description
---------- | -----------
-`limit` | Number of results to return per request.
-`skip` | Number of results to skip.
+This endpoint is currently private.
 
 
 # Schema
 
-> Mongoose schema object:
+Please see [charity-base-schema](https://github.com/charity-base/charity-base-schema)
 
-```javascript
-{
-  "regulator": { "type" : String, "enum" : ["GB-CHC", "GB-SC", "GB-NIC"] },
-  "ids": {
-    "charityId": String,
-    "GB-CHC": Number,
-  },
-  "name": String,
-  "isRegistered": Boolean,
-  "governingDoc": String,
-  "areaOfBenefit": String,
-  "contact": {
-    "email": String,
-    "person": String,
-    "phone": String,
-    "postcode": String,
-    "address": [String],
-    "geo": {
-      "postcode" : String,
-      "quality" : Number,
-      "eastings" : Number,
-      "northings" : Number,
-      "country" : String,
-      "nhs_ha" : String,
-      "longitude" : Number,
-      "latitude" : Number,
-      "european_electoral_region" : String,
-      "primary_care_trust" : String,
-      "region" : String,
-      "lsoa" : String,
-      "msoa" : String,
-      "incode" : String,
-      "outcode" : String,
-      "parliamentary_constituency" : String,
-      "admin_district" : String,
-      "parish" : String,
-      "admin_county" : String,
-      "admin_ward" : String,
-      "ccg" : String,
-      "nuts" : String,
-      "codes" : {
-        "admin_district" : String,
-        "admin_county" : String,
-        "admin_ward" : String,
-        "parish" : String,
-        "parliamentary_constituency" : String,
-        "ccg" : String,
-        "nuts" : String
-      },
-    }
-  },
-  "geo_coords": String,
-  "isWelsh": Boolean,
-  "trustees": {
-    "incorporated": Boolean,
-    "names": [String],
-  },
-  "website": String,
-  "isSchool": Boolean,
-  "income": {
-    "latest": {
-      "date": Date,
-      "total": Number,
-    },
-    "annual": [{
-      "financialYear" : {
-        "begin" : Date,
-        "end" : Date,
-      },
-      "income" : Number,
-      "expend" : Number,
-    }],
-  },
-  "fyend": String,
-  "companiesHouseNumber": String,
-  "areasOfOperation": [{
-    "id" : String,
-    "parentId" : String,
-    "name" : String,
-    "alternativeName" : String,
-    "locationType" : String,
-    "isWelsh" : Boolean,
-  }],
-  "causes": [{
-    "id" : Number,
-    "name" : String,
-  }],
-  "beneficiaries": [{
-    "id" : Number,
-    "name" : String,
-  }],
-  "operations": [{
-    "id" : Number,
-    "name" : String,
-  }],
-  "activities": String,
-  "subsidiaries": [{
-    "name": String,
-    "isRegistered": Boolean,
-    "governingDoc": String,
-    "areaOfBenefit": String,
-    "contact": {
-      "email": String,
-      "person": String,
-      "phone": String,
-      "postcode": String,
-      "address": [String],
-    },
-  }],
-  "alternativeNames": [String],
-  "people": {
-    "trustees": Number,
-    "employees": Number,
-    "volunteers": Number,
-  },
-}
-```
-
-
-Top-level property | Description
---------- | -----------
-regulator | Code for the government charity regulator.
-ids | Charity Identifier object.
-name | Registered charity name.
-isRegistered | `true` if charity still registered.
-governingDoc | History of governing document.
-areaOfBenefit | Free text field describing the geographical area the charity benefits.
-contact | Object detailing the point of contact and registered address geolocation.
-geo_coords | String of the form `latitude,longitude`.
-isWelsh | `true` if charity is Welsh.
-trustees | Object listing names of Trustees and whether or not one is an incorporated entity.
-website | URL of charity website.
-isSchool | `true` if charity is a school.
-income | Object detailing income & expenditure from recent years.
-fyend | The charity's financial year end date in the format `DDMM`.
-companiesHouseNumber | Companies House identifier (if charity is registered as a company in the UK).
-areasOfOperation | List of areas in which the charity operates.
-causes | List of causes the charity is concerned with.
-beneficiaries | List of beneficiaries the charity helps.
-operations | List of operations the charity undertakes. 
-activities | Free text field describing the aims and activities of the charity.
-subsidiaries | List of subsidiary groups.
-alternativeNames | List of all registered working names of the charity.
-people | Object detailing numbers of trustees, employees & volunteers.
-
-# ID Lookup
+# Filter ID Lookups
 
 ## Cause ID Lookup
 
-> JSON causes
+> JSON Causes
 
 ```json
 [
@@ -423,8 +195,6 @@ people | Object detailing numbers of trustees, employees & volunteers.
 ]
 ```
 
-Options that elements in the `causes` property list can take:
-
 Cause ID | Cause Name
 --------- | -----------
 101 | General charitable purposes
@@ -447,7 +217,7 @@ Cause ID | Cause Name
 
 ## Beneficiary ID Lookup
 
-> JSON beneficiaries
+> JSON Beneficiaries
 
 ```json
 [
@@ -461,8 +231,6 @@ Cause ID | Cause Name
 ]
 ```
 
-Options that elements in the `beneficiaries` property list can take:
-
 Beneficiary ID | Beneficiary Name
 --------- | -----------
 201 | Children/young people
@@ -475,7 +243,7 @@ Beneficiary ID | Beneficiary Name
 
 ## Operation ID Lookup
 
-> JSON operations
+> JSON Operations
 
 ```json
 [
@@ -492,8 +260,6 @@ Beneficiary ID | Beneficiary Name
 ]
 ```
 
-Options that elements in the `operations` property list can take:
-
 Operation ID | Operation Name
 --------- | -----------
 301 | Makes grants to individuals
@@ -507,9 +273,401 @@ Operation ID | Operation Name
 309 | Acts as an umbrella or resource body
 310 | Other charitable activities
 
+## Funder ID Lookup
+
+> JSON Funders
+
+```json
+[
+  {
+    "id": "GB-CHC-1000147",
+    "name": "A B Charitable Trust"
+  },
+  {
+    "id": "360G-ArcadiaFund",
+    "name": "ARCADIA"
+  },
+  {
+    "id": "GB-CHC-1115476",
+    "name": "Barrow Cadbury Trust"
+  },
+  {
+    "id": "GB-CHC-802052",
+    "name": "BBC Children in Need"
+  },
+  {
+    "id": "360G-blf",
+    "name": "The Big Lottery Fund"
+  },
+  {
+    "id": "GB-LAE-BIR",
+    "name": "Birmingham City Council"
+  },
+  {
+    "id": "GB-CHC-1164021",
+    "name": "The Blagrave Trust"
+  },
+  {
+    "id": "GB-CHC-1143711",
+    "name": "Cheshire Community Foundation"
+  },
+  {
+    "id": "GB-CHC-1035628",
+    "name": "City Bridge Trust"
+  },
+  {
+    "id": "GB-CHC-274100",
+    "name": "The Clothworkers Foundation"
+  },
+  {
+    "id": "GB-COH-IP00525R",
+    "name": "Co-operative Group"
+  },
+  {
+    "id": "GB-CHC-326568 ",
+    "name": "Comic Relief"
+  },
+  {
+    "id": "GB-CHC-1111600",
+    "name": "Community Foundation for Surrey"
+  },
+  {
+    "id": "GB-COH-02273708",
+    "name": "Community Foundation serving Tyne & Wear and Northumberland"
+  },
+  {
+    "id": "GB-CHC-309671",
+    "name": "Culham St Gabriel\'s Trust"
+  },
+  {
+    "id": "GB-CHC-1078217",
+    "name": "The David & Elaine Potter Foundation"
+  },
+  {
+    "id": "GB-GOR-D9",
+    "name": "Department for Transport"
+  },
+  {
+    "id": "GB-COH-07991677",
+    "name": "The Dulverton Trust"
+  },
+  {
+    "id": "GB-CHC-1140372",
+    "name": "The Dunhill Medical Trust"
+  },
+  {
+    "id": "GB-CHC-200051",
+    "name": "Esmée Fairbairn Foundation"
+  },
+  {
+    "id": "GB-CHC-1052061",
+    "name": "Essex Community Foundation"
+  },
+  {
+    "id": "GB-CHC-1123081",
+    "name": "The Fore"
+  },
+  {
+    "id": "GB-CHC-230260",
+    "name": "Garfield Weston Foundation"
+  },
+  {
+    "id": "GB-CHC-251988",
+    "name": "Gatsby Charitable Foundation"
+  },
+  {
+    "id": "GB-LAE-GLA",
+    "name": "Greater London Authority"
+  },
+  {
+    "id": "GB-CHC-1045304",
+    "name": "Heart Of England Community Foundation"
+  },
+  {
+    "id": "GB-CHC-230102",
+    "name": "The Henry Smith Charity "
+  },
+  {
+    "id": "GB-CHC-1075920",
+    "name": "Indigo Trust"
+  },
+  {
+    "id": "GB-CHC-253481",
+    "name": "John Moores Foundation"
+  },
+  {
+    "id": "GB-CHC-1093844",
+    "name": "The Joseph Rank Trust"
+  },
+  {
+    "id": "GB-CHC-210037",
+    "name": "Joseph Rowntree Charitable Trust"
+  },
+  {
+    "id": "GB-CHC-210169",
+    "name": "Joseph Rowntree Foundation"
+  },
+  {
+    "id": "GB-CHC-1111360",
+    "name": "Kingston Voluntary Action"
+  },
+  {
+    "id": "GB-CHC-295157",
+    "name": "LandAid Charitable Trust"
+  },
+  {
+    "id": "GB-CHC-1107583",
+    "name": "Lankelly Chase Foundation"
+  },
+  {
+    "id": "GB-CHC-327114",
+    "name": "Lloyds Bank Foundation for England and Wales"
+  },
+  {
+    "id": "GB-LAE-BNE",
+    "name": "London Borough of Barnet"
+  },
+  {
+    "id": "GB-LAE-SWK",
+    "name": "London Borough of Southwark"
+  },
+  {
+    "id": "GB-COH-03037449",
+    "name": "London Councils"
+  },
+  {
+    "id": "GB-CHC-1145921",
+    "name": "Macc"
+  },
+  {
+    "id": "GB-CHC-1164703",
+    "name": "Masonic Charitable Foundation"
+  },
+  {
+    "id": "GB-CHC-1158914",
+    "name": "Millfield House Foundation"
+  },
+  {
+    "id": "GB-GOR-D18",
+    "name": "Ministry of Justice"
+  },
+  {
+    "id": "GB-CHC-1065552",
+    "name": "Nationwide Foundation"
+  },
+  {
+    "id": "GB-CHC-1144091",
+    "name": "Nesta"
+  },
+  {
+    "id": "GB-COH-03416658",
+    "name": "Northern Rock Foundation"
+  },
+  {
+    "id": "GB-COH-RS007018",
+    "name": "One Manchester"
+  },
+  {
+    "id": "GB-LAE-OXO",
+    "name": "Oxford City Council"
+  },
+  {
+    "id": "GB-CHC-1151621",
+    "name": "Oxfordshire Community Foundation"
+  },
+  {
+    "id": "GB-CHC-1102927",
+    "name": "Paul Hamlyn Foundation"
+  },
+  {
+    "id": "GB-CHC-1009195",
+    "name": "Pears Foundation"
+  },
+  {
+    "id": "GB-CHC-1159982",
+    "name": "Power to Change "
+  },
+  {
+    "id": "GB-CHC-1080418",
+    "name": "Quartet Community Foundation"
+  },
+  {
+    "id": "GB-SC-SC012710",
+    "name": "R S Macdonald Charitable Trust"
+  },
+  {
+    "id": "GB-CHC-1156300",
+    "name": "Road Safety Trust"
+  },
+  {
+    "id": "GB-SC-SC002970",
+    "name": "The Robertson Trust"
+  },
+  {
+    "id": "GB-CHC-226446",
+    "name": "Seafarers UK"
+  },
+  {
+    "id": "GB-COH-04530979",
+    "name": "Somerset Community Foundation"
+  },
+  {
+    "id": "GB-COH-RC000766",
+    "name": "Sport England"
+  },
+  {
+    "id": "GB-CHC-1010656",
+    "name": "Staples Trust"
+  },
+  {
+    "id": "GB-CHC-1113226",
+    "name": "Sussex Community Foundation"
+  },
+  {
+    "id": "GB-CHC-328524",
+    "name": "Tedworth Charitable Trust"
+  },
+  {
+    "id": "GB-CHC-1059652",
+    "name": "Three Guineas Trust"
+  },
+  {
+    "id": "GB-COH-04831118",
+    "name": "Trafford Housing Trust Social Investment"
+  },
+  {
+    "id": "GB-LAE-TRF",
+    "name": "Trafford Metropolitan Borough Council"
+  },
+  {
+    "id": "GB-CHC-1089893",
+    "name": "True Colours Trust"
+  },
+  {
+    "id": "GB-CHC-1105580",
+    "name": "The Tudor Trust"
+  },
+  {
+    "id": "GB-CHC-1081124",
+    "name": "Tuixen Foundation"
+  },
+  {
+    "id": "GB-CHC-1166471",
+    "name": "Two Ridings Community Foundation"
+  },
+  {
+    "id": "GB-CHC-1103731",
+    "name": "United St Saviour\'s Charity"
+  },
+  {
+    "id": "GB-CHC-1161290",
+    "name": "Virgin Money Foundation"
+  },
+  {
+    "id": "GB-CHC-312800",
+    "name": "Walcot Foundation"
+  },
+  {
+    "id": "GB-CHC-1123126",
+    "name": "Wiltshire Community Foundation"
+  },
+  {
+    "id": "GB-CHC-1156077",
+    "name": "Wolfson Foundation"
+  },
+  {
+    "id": "GB-CHC-299963",
+    "name": "Woodward Charitable Trust"
+  },
+  {
+    "id": "GB-CHC-1133342",
+    "name": "ZING"
+  }
+]
+```
+
+Funder ID | Funder Name
+--------- | -----------
+GB-CHC-1000147 | A B Charitable Trust
+360G-ArcadiaFund | ARCADIA
+GB-CHC-1115476 | Barrow Cadbury Trust
+GB-CHC-802052 | BBC Children in Need
+360G-blf | The Big Lottery Fund
+GB-LAE-BIR | Birmingham City Council
+GB-CHC-1164021 | The Blagrave Trust
+GB-CHC-1143711 | Cheshire Community Foundation
+GB-CHC-1035628 | City Bridge Trust
+GB-CHC-274100 | The Clothworkers Foundation
+GB-COH-IP00525R | Co-operative Group
+GB-CHC-326568  | Comic Relief
+GB-CHC-1111600 | Community Foundation for Surrey
+GB-COH-02273708 | Community Foundation serving Tyne & Wear and Northumberland
+GB-CHC-309671 | Culham St Gabriel\'s Trust
+GB-CHC-1078217 | The David & Elaine Potter Foundation
+GB-GOR-D9 | Department for Transport
+GB-COH-07991677 | The Dulverton Trust
+GB-CHC-1140372 | The Dunhill Medical Trust
+GB-CHC-200051 | Esmée Fairbairn Foundation
+GB-CHC-1052061 | Essex Community Foundation
+GB-CHC-1123081 | The Fore
+GB-CHC-230260 | Garfield Weston Foundation
+GB-CHC-251988 | Gatsby Charitable Foundation
+GB-LAE-GLA | Greater London Authority
+GB-CHC-1045304 | Heart Of England Community Foundation
+GB-CHC-230102 | The Henry Smith Charity 
+GB-CHC-1075920 | Indigo Trust
+GB-CHC-253481 | John Moores Foundation
+GB-CHC-1093844 | The Joseph Rank Trust
+GB-CHC-210037 | Joseph Rowntree Charitable Trust
+GB-CHC-210169 | Joseph Rowntree Foundation
+GB-CHC-1111360 | Kingston Voluntary Action
+GB-CHC-295157 | LandAid Charitable Trust
+GB-CHC-1107583 | Lankelly Chase Foundation
+GB-CHC-327114 | Lloyds Bank Foundation for England and Wales
+GB-LAE-BNE | London Borough of Barnet
+GB-LAE-SWK | London Borough of Southwark
+GB-COH-03037449 | London Councils
+GB-CHC-1145921 | Macc
+GB-CHC-1164703 | Masonic Charitable Foundation
+GB-CHC-1158914 | Millfield House Foundation
+GB-GOR-D18 | Ministry of Justice
+GB-CHC-1065552 | Nationwide Foundation
+GB-CHC-1144091 | Nesta
+GB-COH-03416658 | Northern Rock Foundation
+GB-COH-RS007018 | One Manchester
+GB-LAE-OXO | Oxford City Council
+GB-CHC-1151621 | Oxfordshire Community Foundation
+GB-CHC-1102927 | Paul Hamlyn Foundation
+GB-CHC-1009195 | Pears Foundation
+GB-CHC-1159982 | Power to Change 
+GB-CHC-1080418 | Quartet Community Foundation
+GB-SC-SC012710 | R S Macdonald Charitable Trust
+GB-CHC-1156300 | Road Safety Trust
+GB-SC-SC002970 | The Robertson Trust
+GB-CHC-226446 | Seafarers UK
+GB-COH-04530979 | Somerset Community Foundation
+GB-COH-RC000766 | Sport England
+GB-CHC-1010656 | Staples Trust
+GB-CHC-1113226 | Sussex Community Foundation
+GB-CHC-328524 | Tedworth Charitable Trust
+GB-CHC-1059652 | Three Guineas Trust
+GB-COH-04831118 | Trafford Housing Trust Social Investment
+GB-LAE-TRF | Trafford Metropolitan Borough Council
+GB-CHC-1089893 | True Colours Trust
+GB-CHC-1105580 | The Tudor Trust
+GB-CHC-1081124 | Tuixen Foundation
+GB-CHC-1166471 | Two Ridings Community Foundation
+GB-CHC-1103731 | United St Saviour\'s Charity
+GB-CHC-1161290 | Virgin Money Foundation
+GB-CHC-312800 | Walcot Foundation
+GB-CHC-1123126 | Wiltshire Community Foundation
+GB-CHC-1156077 | Wolfson Foundation
+GB-CHC-299963 | Woodward Charitable Trust
+GB-CHC-1133342 | ZING
+
 ## Area of Operation ID Lookup
 
-> JSON areas of operation
+> JSON Areas of Operation
 
 ```json
 [
@@ -941,8 +1099,6 @@ Operation ID | Operation Name
   { "id": "D-293", "name": "Republic Of South Sudan" }
 ]
 ```
-
-Options that elements in the `areasOfOperation` property list can take:
 
 ### UK Division
 
