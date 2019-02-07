@@ -13,7 +13,9 @@ curl "https://charitybase.uk/api/v4.0.1/charities\
 ```
 
 ```javascript
-const charityBase = require('charity-base')({
+const CharityBaseClient = require('charity-base')
+
+const charityBase = new CharityBaseClient({
   apiKey: 'my-api-key'
 })
 
@@ -88,7 +90,9 @@ curl "https://charitybase.uk/api/v4.0.1/count-charities\
 ```
 
 ```javascript
-const charityBase = require('charity-base')({
+const CharityBaseClient = require('charity-base')
+
+const charityBase = new CharityBaseClient({
   apiKey: 'my-api-key'
 })
 
