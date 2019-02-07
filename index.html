@@ -288,7 +288,9 @@
 &amp;fields=income.latest.total</span><span class="se">\</span><span class="s2">
 &amp;incomeRange=10000,100000</span><span class="se">\</span><span class="s2">
 &amp;sort=income.latest.total:desc"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">charityBase</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'charity-base'</span><span class="p">)({</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CharityBaseClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'charity-base'</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">charityBase</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CharityBaseClient</span><span class="p">({</span>
   <span class="na">apiKey</span><span class="p">:</span> <span class="s1">'my-api-key'</span>
 <span class="p">})</span>
 
@@ -409,7 +411,9 @@
 &amp;funders=360G-blf</span><span class="se">\</span><span class="s2">
 &amp;causes.id=111</span><span class="se">\</span><span class="s2">
 &amp;areasOfOperation.id=B-122"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">charityBase</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'charity-base'</span><span class="p">)({</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CharityBaseClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'charity-base'</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">charityBase</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CharityBaseClient</span><span class="p">({</span>
   <span class="na">apiKey</span><span class="p">:</span> <span class="s1">'my-api-key'</span>
 <span class="p">})</span>
 
