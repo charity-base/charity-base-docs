@@ -115,6 +115,10 @@ Operation ID | Operation Name
     "name" : "A B Charitable Trust"
   },
   {
+    "id" : "360G-ArcadiaFund",
+    "name" : "ARCADIA"
+  },
+  {
     "id" : "GB-CHC-1115476",
     "name" : "Barrow Cadbury Trust"
   },
@@ -309,10 +313,6 @@ Operation ID | Operation Name
   {
     "id" : "GB-COH-03037449",
     "name" : "London Councils"
-  },
-  {
-    "id" : "360G-ArcadiaFund",
-    "name" : "ARCADIA"
   },
   {
     "id" : "GB-CHC-1145921",
