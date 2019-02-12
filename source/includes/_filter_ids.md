@@ -111,308 +111,392 @@ Operation ID | Operation Name
 ```json
 [
   {
-    "id": "GB-CHC-1000147",
-    "name": "A B Charitable Trust"
+    "id" : "GB-CHC-1000147",
+    "name" : "A B Charitable Trust"
   },
   {
-    "id": "360G-ArcadiaFund",
-    "name": "ARCADIA"
+    "id" : "360G-ArcadiaFund",
+    "name" : "ARCADIA"
   },
   {
-    "id": "GB-CHC-1115476",
-    "name": "Barrow Cadbury Trust"
+    "id" : "GB-CHC-1115476",
+    "name" : "Barrow Cadbury Trust"
   },
   {
-    "id": "GB-CHC-802052",
-    "name": "BBC Children in Need"
+    "id" : "GB-CHC-802052",
+    "name" : "BBC Children in Need"
   },
   {
-    "id": "360G-blf",
-    "name": "The Big Lottery Fund"
+    "id" : "360G-blf",
+    "name" : "The Big Lottery Fund"
   },
   {
-    "id": "GB-LAE-BIR",
-    "name": "Birmingham City Council"
+    "id" : "GB-LAE-BIR",
+    "name" : "Birmingham City Council"
   },
   {
-    "id": "GB-CHC-1164021",
-    "name": "The Blagrave Trust"
+    "id" : "GB-CHC-1164021",
+    "name" : "The Blagrave Trust"
   },
   {
-    "id": "GB-CHC-1143711",
-    "name": "Cheshire Community Foundation"
+    "id" : "360G-Gulbenkian",
+    "name" : "Calouste Gulbenkian Foundation, UK Branch"
   },
   {
-    "id": "GB-CHC-1035628",
-    "name": "City Bridge Trust"
+    "id" : "GB-CHC-1143711",
+    "name" : "Cheshire Community Foundation"
   },
   {
-    "id": "GB-CHC-274100",
-    "name": "The Clothworkers Foundation"
+    "id" : "GB-CHC-1035628",
+    "name" : "City Bridge Trust"
   },
   {
-    "id": "GB-COH-IP00525R",
-    "name": "Co-operative Group"
+    "id" : "GB-CHC-274100",
+    "name" : "The Clothworkers Foundation"
   },
   {
-    "id": "GB-CHC-326568 ",
-    "name": "Comic Relief"
+    "id" : "GB-CHC-205959",
+    "name" : "Cloudesley"
   },
   {
-    "id": "GB-CHC-1111600",
-    "name": "Community Foundation for Surrey"
+    "id" : "GB-COH-IP00525R",
+    "name" : "Co-operative Group"
   },
   {
-    "id": "GB-COH-02273708",
-    "name": "Community Foundation serving Tyne & Wear and Northumberland"
+    "id" : "GB-CHC-326568 ",
+    "name" : "Comic Relief"
   },
   {
-    "id": "GB-CHC-309671",
-    "name": "Culham St Gabriel\'s Trust"
+    "id" : "GB-CHC-1111600",
+    "name" : "Community Foundation for Surrey"
   },
   {
-    "id": "GB-CHC-1078217",
-    "name": "The David & Elaine Potter Foundation"
+    "id" : "GB-COH-02273708",
+    "name" : "Community Foundation serving Tyne & Wear and Northumberland"
   },
   {
-    "id": "GB-GOR-D9",
-    "name": "Department for Transport"
+    "id" : "GB-CHC-1093028",
+    "name" : "Coop Foundation"
   },
   {
-    "id": "GB-COH-07991677",
-    "name": "The Dulverton Trust"
+    "id" : "GB-SC-SC009481",
+    "name" : "Corra Foundation"
   },
   {
-    "id": "GB-CHC-1140372",
-    "name": "The Dunhill Medical Trust"
+    "id" : "GB-CHC-309671",
+    "name" : "Culham St Gabriel's Trust"
   },
   {
-    "id": "GB-CHC-200051",
-    "name": "Esmée Fairbairn Foundation"
+    "id" : "GB-CHC-1078217",
+    "name" : "The David & Elaine Potter Foundation"
   },
   {
-    "id": "GB-CHC-1052061",
-    "name": "Essex Community Foundation"
+    "id" : "GB-GOR-D9",
+    "name" : "Department for Transport"
   },
   {
-    "id": "GB-CHC-1123081",
-    "name": "The Fore"
+    "id" : "GB-CHC-1057923",
+    "name" : "Devon Community Foundation"
   },
   {
-    "id": "GB-CHC-230260",
-    "name": "Garfield Weston Foundation"
+    "id" : "GB-COH-07991677",
+    "name" : "The Dulverton Trust"
   },
   {
-    "id": "GB-CHC-251988",
-    "name": "Gatsby Charitable Foundation"
+    "id" : "GB-LAS-DND",
+    "name" : "Dundee City Council"
   },
   {
-    "id": "GB-LAE-GLA",
-    "name": "Greater London Authority"
+    "id" : "GB-CHC-1140372",
+    "name" : "The Dunhill Medical Trust"
   },
   {
-    "id": "GB-CHC-1045304",
-    "name": "Heart Of England Community Foundation"
+    "id" : "GB-CHC-200051",
+    "name" : "Esmée Fairbairn Foundation"
   },
   {
-    "id": "GB-CHC-230102",
-    "name": "The Henry Smith Charity "
+    "id" : "GB-CHC-1052061",
+    "name" : "Essex Community Foundation"
   },
   {
-    "id": "GB-CHC-1075920",
-    "name": "Indigo Trust"
+    "id" : "GB-CHC-1123081",
+    "name" : "The Fore"
   },
   {
-    "id": "GB-CHC-253481",
-    "name": "John Moores Foundation"
+    "id" : "GB-CHC-230260",
+    "name" : "Garfield Weston Foundation"
   },
   {
-    "id": "GB-CHC-1093844",
-    "name": "The Joseph Rank Trust"
+    "id" : "GB-CHC-251988",
+    "name" : "Gatsby Charitable Foundation"
   },
   {
-    "id": "GB-CHC-210037",
-    "name": "Joseph Rowntree Charitable Trust"
+    "id" : "GB-LAS-GLG",
+    "name" : "Glasgow City Council"
   },
   {
-    "id": "GB-CHC-210169",
-    "name": "Joseph Rowntree Foundation"
+    "id" : "GB-LAE-GLA",
+    "name" : "Greater London Authority"
   },
   {
-    "id": "GB-CHC-1111360",
-    "name": "Kingston Voluntary Action"
+    "id" : "GB-COH-03340350",
+    "name" : "Greenham Common Trust"
   },
   {
-    "id": "GB-CHC-295157",
-    "name": "LandAid Charitable Trust"
+    "id" : "GB-CHC-1160316",
+    "name" : "Guy's and St Thomas' Charity"
   },
   {
-    "id": "GB-CHC-1107583",
-    "name": "Lankelly Chase Foundation"
+    "id" : "GB-CHC-1045304",
+    "name" : "Heart Of England Community Foundation"
   },
   {
-    "id": "GB-CHC-327114",
-    "name": "Lloyds Bank Foundation for England and Wales"
+    "id" : "GB-CHC-230102",
+    "name" : "The Henry Smith Charity "
   },
   {
-    "id": "GB-LAE-BNE",
-    "name": "London Borough of Barnet"
+    "id" : "GB-CHC-1075920",
+    "name" : "Indigo Trust"
   },
   {
-    "id": "GB-LAE-SWK",
-    "name": "London Borough of Southwark"
+    "id" : "GB-CHC-253481",
+    "name" : "John Moores Foundation"
   },
   {
-    "id": "GB-COH-03037449",
-    "name": "London Councils"
+    "id" : "GB-CHC-1093844",
+    "name" : "The Joseph Rank Trust"
   },
   {
-    "id": "GB-CHC-1145921",
-    "name": "Macc"
+    "id" : "GB-CHC-210037",
+    "name" : "Joseph Rowntree Charitable Trust"
   },
   {
-    "id": "GB-CHC-1164703",
-    "name": "Masonic Charitable Foundation"
+    "id" : "GB-CHC-210169",
+    "name" : "Joseph Rowntree Foundation"
   },
   {
-    "id": "GB-CHC-1158914",
-    "name": "Millfield House Foundation"
+    "id" : "GB-CHC-1111360",
+    "name" : "Kingston Voluntary Action"
   },
   {
-    "id": "GB-GOR-D18",
-    "name": "Ministry of Justice"
+    "id" : "GB-CHC-295157",
+    "name" : "LandAid Charitable Trust"
   },
   {
-    "id": "GB-CHC-1065552",
-    "name": "Nationwide Foundation"
+    "id" : "GB-CHC-1107583",
+    "name" : "Lankelly Chase Foundation"
   },
   {
-    "id": "GB-CHC-1144091",
-    "name": "Nesta"
+    "id" : "GB-CHC-1145988",
+    "name" : "Lloyd's Register Foundation"
   },
   {
-    "id": "GB-COH-03416658",
-    "name": "Northern Rock Foundation"
+    "id" : "GB-CHC-327114",
+    "name" : "Lloyds Bank Foundation for England and Wales"
   },
   {
-    "id": "GB-COH-RS007018",
-    "name": "One Manchester"
+    "id" : "GB-CHC-1147511",
+    "name" : "Local Trust"
   },
   {
-    "id": "GB-LAE-OXO",
-    "name": "Oxford City Council"
+    "id" : "GB-LAE-BNE",
+    "name" : "London Borough of Barnet"
   },
   {
-    "id": "GB-CHC-1151621",
-    "name": "Oxfordshire Community Foundation"
+    "id" : "GB-LAE-SWK",
+    "name" : "London Borough of Southwark"
   },
   {
-    "id": "GB-CHC-1102927",
-    "name": "Paul Hamlyn Foundation"
+    "id" : "GB-CHC-1066739",
+    "name" : "London Catalyst"
   },
   {
-    "id": "GB-CHC-1009195",
-    "name": "Pears Foundation"
+    "id" : "GB-COH-03037449",
+    "name" : "London Councils"
   },
   {
-    "id": "GB-CHC-1159982",
-    "name": "Power to Change "
+    "id" : "GB-CHC-1145921",
+    "name" : "Macc"
   },
   {
-    "id": "GB-CHC-1080418",
-    "name": "Quartet Community Foundation"
+    "id" : "GB-CHC-1164703",
+    "name" : "Masonic Charitable Foundation"
   },
   {
-    "id": "GB-SC-SC012710",
-    "name": "R S Macdonald Charitable Trust"
+    "id" : "GB-CHC-1158914",
+    "name" : "Millfield House Foundation"
   },
   {
-    "id": "GB-CHC-1156300",
-    "name": "Road Safety Trust"
+    "id" : "GB-GOR-D18",
+    "name" : "Ministry of Justice"
   },
   {
-    "id": "GB-SC-SC002970",
-    "name": "The Robertson Trust"
+    "id" : "GB-CHC-1119845",
+    "name" : "National Churches Trust"
   },
   {
-    "id": "GB-CHC-226446",
-    "name": "Seafarers UK"
+    "id" : "GB-CHC-1065552",
+    "name" : "Nationwide Foundation"
   },
   {
-    "id": "GB-COH-04530979",
-    "name": "Somerset Community Foundation"
+    "id" : "GB-CHC-1144091",
+    "name" : "Nesta"
   },
   {
-    "id": "GB-COH-RC000766",
-    "name": "Sport England"
+    "id" : "GB-COH-03416658",
+    "name" : "Northern Rock Foundation"
   },
   {
-    "id": "GB-CHC-1010656",
-    "name": "Staples Trust"
+    "id" : "GB-COH-RS007018",
+    "name" : "One Manchester"
   },
   {
-    "id": "GB-CHC-1113226",
-    "name": "Sussex Community Foundation"
+    "id" : "GB-LAE-OXO",
+    "name" : "Oxford City Council"
   },
   {
-    "id": "GB-CHC-328524",
-    "name": "Tedworth Charitable Trust"
+    "id" : "GB-CHC-1151621",
+    "name" : "Oxfordshire Community Foundation"
   },
   {
-    "id": "GB-CHC-1059652",
-    "name": "Three Guineas Trust"
+    "id" : "GB-CHC-1102927",
+    "name" : "Paul Hamlyn Foundation"
   },
   {
-    "id": "GB-COH-04831118",
-    "name": "Trafford Housing Trust Social Investment"
+    "id" : "GB-CHC-1009195",
+    "name" : "Pears Foundation"
   },
   {
-    "id": "GB-LAE-TRF",
-    "name": "Trafford Metropolitan Borough Council"
+    "id" : "GB-CHC-1159982",
+    "name" : "Power to Change "
   },
   {
-    "id": "GB-CHC-1089893",
-    "name": "True Colours Trust"
+    "id" : "GB-CHC-1080418",
+    "name" : "Quartet Community Foundation"
   },
   {
-    "id": "GB-CHC-1105580",
-    "name": "The Tudor Trust"
+    "id" : "US-EIN-39-1916960",
+    "name" : "Quixote Foundation"
   },
   {
-    "id": "GB-CHC-1081124",
-    "name": "Tuixen Foundation"
+    "id" : "GB-SC-SC012710",
+    "name" : "R S Macdonald Charitable Trust"
   },
   {
-    "id": "GB-CHC-1166471",
-    "name": "Two Ridings Community Foundation"
+    "id" : "GB-CHC-1156300",
+    "name" : "Road Safety Trust"
   },
   {
-    "id": "GB-CHC-1103731",
-    "name": "United St Saviour\'s Charity"
+    "id" : "GB-SC-SC002970",
+    "name" : "The Robertson Trust"
   },
   {
-    "id": "GB-CHC-1161290",
-    "name": "Virgin Money Foundation"
+    "id" : "GB-CHC-265647",
+    "name" : "Samworth Foundation"
   },
   {
-    "id": "GB-CHC-312800",
-    "name": "Walcot Foundation"
+    "id" : "GB-SC-SC003558",
+    "name" : "Scottish Council For Voluntary Organisations"
   },
   {
-    "id": "GB-CHC-1123126",
-    "name": "Wiltshire Community Foundation"
+    "id" : "GB-CHC-226446",
+    "name" : "Seafarers UK"
   },
   {
-    "id": "GB-CHC-1156077",
-    "name": "Wolfson Foundation"
+    "id" : "GB-COH-04530979",
+    "name" : "Somerset Community Foundation"
   },
   {
-    "id": "GB-CHC-299963",
-    "name": "Woodward Charitable Trust"
+    "id" : "GB-COH-RC000766",
+    "name" : "Sport England"
   },
   {
-    "id": "GB-CHC-1133342",
-    "name": "ZING"
+    "id" : "GB-CHC-1010656",
+    "name" : "Staples Trust"
+  },
+  {
+    "id" : "GB-LAE-SKP",
+    "name" : "Stockport MBC"
+  },
+  {
+    "id" : "GB-CHC-1113226",
+    "name" : "Sussex Community Foundation"
+  },
+  {
+    "id" : "GB-CHC-328524",
+    "name" : "Tedworth Charitable Trust"
+  },
+  {
+    "id" : "GB-CHC-1059652",
+    "name" : "Three Guineas Trust"
+  },
+  {
+    "id" : "GB-COH-04831118",
+    "name" : "Trafford Housing Trust Social Investment"
+  },
+  {
+    "id" : "GB-LAE-TRF",
+    "name" : "Trafford Metropolitan Borough Council"
+  },
+  {
+    "id" : "GB-CHC-1089893",
+    "name" : "True Colours Trust"
+  },
+  {
+    "id" : "GB-CHC-205629",
+    "name" : "Trust for London"
+  },
+  {
+    "id" : "GB-CHC-1105580",
+    "name" : "The Tudor Trust"
+  },
+  {
+    "id" : "GB-CHC-1081124",
+    "name" : "Tuixen Foundation"
+  },
+  {
+    "id" : "GB-CHC-1166471",
+    "name" : "Two Ridings Community Foundation"
+  },
+  {
+    "id" : "GB-CHC-1103731",
+    "name" : "United St Saviour's Charity"
+  },
+  {
+    "id" : "GB-CHC-1161290",
+    "name" : "Virgin Money Foundation"
+  },
+  {
+    "id" : "GB-CHC-312800",
+    "name" : "Walcot Foundation"
+  },
+  {
+    "id" : "GB-CHC-1126007",
+    "name" : "Wates Family Enterprise Trust"
+  },
+  {
+    "id" : "GB-CHC-247941",
+    "name" : "Wates Foundation"
+  },
+  {
+    "id" : "GB-CHC-210183",
+    "name" : "The Wellcome Trust"
+  },
+  {
+    "id" : "GB-CHC-1123126",
+    "name" : "Wiltshire Community Foundation"
+  },
+  {
+    "id" : "GB-CHC-1156077",
+    "name" : "Wolfson Foundation"
+  },
+  {
+    "id" : "GB-CHC-299963",
+    "name" : "Woodward Charitable Trust"
+  },
+  {
+    "id" : "GB-CHC-1133342",
+    "name" : "ZING"
   }
 ]
 ```
@@ -426,24 +510,33 @@ GB-CHC-802052 | BBC Children in Need
 360G-blf | The Big Lottery Fund
 GB-LAE-BIR | Birmingham City Council
 GB-CHC-1164021 | The Blagrave Trust
+360G-Gulbenkian | Calouste Gulbenkian Foundation, UK Branch
 GB-CHC-1143711 | Cheshire Community Foundation
 GB-CHC-1035628 | City Bridge Trust
 GB-CHC-274100 | The Clothworkers Foundation
+GB-CHC-205959 | Cloudesley
 GB-COH-IP00525R | Co-operative Group
 GB-CHC-326568  | Comic Relief
 GB-CHC-1111600 | Community Foundation for Surrey
 GB-COH-02273708 | Community Foundation serving Tyne & Wear and Northumberland
+GB-CHC-1093028 | Coop Foundation
+GB-SC-SC009481 | Corra Foundation
 GB-CHC-309671 | Culham St Gabriel\'s Trust
 GB-CHC-1078217 | The David & Elaine Potter Foundation
 GB-GOR-D9 | Department for Transport
+GB-CHC-1057923 | Devon Community Foundation
 GB-COH-07991677 | The Dulverton Trust
+GB-LAS-DND | Dundee City Council
 GB-CHC-1140372 | The Dunhill Medical Trust
 GB-CHC-200051 | Esmée Fairbairn Foundation
 GB-CHC-1052061 | Essex Community Foundation
 GB-CHC-1123081 | The Fore
 GB-CHC-230260 | Garfield Weston Foundation
 GB-CHC-251988 | Gatsby Charitable Foundation
+GB-LAS-GLG | Glasgow City Council
 GB-LAE-GLA | Greater London Authority
+GB-COH-03340350 | Greenham Common Trust
+GB-CHC-1160316 | Guy\'s and St Thomas\' Charity
 GB-CHC-1045304 | Heart Of England Community Foundation
 GB-CHC-230102 | The Henry Smith Charity 
 GB-CHC-1075920 | Indigo Trust
@@ -454,14 +547,18 @@ GB-CHC-210169 | Joseph Rowntree Foundation
 GB-CHC-1111360 | Kingston Voluntary Action
 GB-CHC-295157 | LandAid Charitable Trust
 GB-CHC-1107583 | Lankelly Chase Foundation
+GB-CHC-1145988 | Lloyd\'s Register Foundation
 GB-CHC-327114 | Lloyds Bank Foundation for England and Wales
+GB-CHC-1147511 | Local Trust
 GB-LAE-BNE | London Borough of Barnet
 GB-LAE-SWK | London Borough of Southwark
+GB-CHC-1066739 | London Catalyst
 GB-COH-03037449 | London Councils
 GB-CHC-1145921 | Macc
 GB-CHC-1164703 | Masonic Charitable Foundation
 GB-CHC-1158914 | Millfield House Foundation
 GB-GOR-D18 | Ministry of Justice
+GB-CHC-1119845 | National Churches Trust
 GB-CHC-1065552 | Nationwide Foundation
 GB-CHC-1144091 | Nesta
 GB-COH-03416658 | Northern Rock Foundation
@@ -472,25 +569,33 @@ GB-CHC-1102927 | Paul Hamlyn Foundation
 GB-CHC-1009195 | Pears Foundation
 GB-CHC-1159982 | Power to Change 
 GB-CHC-1080418 | Quartet Community Foundation
+US-EIN-39-1916960 | Quixote Foundation
 GB-SC-SC012710 | R S Macdonald Charitable Trust
 GB-CHC-1156300 | Road Safety Trust
 GB-SC-SC002970 | The Robertson Trust
+GB-CHC-265647 | Samworth Foundation
+GB-SC-SC003558 | Scottish Council For Voluntary Organisations
 GB-CHC-226446 | Seafarers UK
 GB-COH-04530979 | Somerset Community Foundation
 GB-COH-RC000766 | Sport England
 GB-CHC-1010656 | Staples Trust
+GB-LAE-SKP | Stockport MBC
 GB-CHC-1113226 | Sussex Community Foundation
 GB-CHC-328524 | Tedworth Charitable Trust
 GB-CHC-1059652 | Three Guineas Trust
 GB-COH-04831118 | Trafford Housing Trust Social Investment
 GB-LAE-TRF | Trafford Metropolitan Borough Council
 GB-CHC-1089893 | True Colours Trust
+GB-CHC-205629 | Trust for London
 GB-CHC-1105580 | The Tudor Trust
 GB-CHC-1081124 | Tuixen Foundation
 GB-CHC-1166471 | Two Ridings Community Foundation
 GB-CHC-1103731 | United St Saviour\'s Charity
 GB-CHC-1161290 | Virgin Money Foundation
 GB-CHC-312800 | Walcot Foundation
+GB-CHC-1126007 | Wates Family Enterprise Trust
+GB-CHC-247941 | Wates Foundation
+GB-CHC-210183 | The Wellcome Trust
 GB-CHC-1123126 | Wiltshire Community Foundation
 GB-CHC-1156077 | Wolfson Foundation
 GB-CHC-299963 | Woodward Charitable Trust

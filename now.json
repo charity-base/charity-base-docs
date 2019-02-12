@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "charity-base-docs-v4",
+  "alias": "https://charity-base-docs-v4.now.sh",
+  "builds": [
+    { "src": "./build/**", "use": "@now/static" }
+  ],
+  "routes": [
+    { "src": "^/docs/v4/(.*)", "dest": "/build/$1"}
+  ]
+}

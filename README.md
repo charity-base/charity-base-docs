@@ -33,12 +33,25 @@ bundle exec middleman server
 
 # OR run this to run with vagrant
 vagrant up
-
-# To build for production
-bundle exec middleman build --clean
 ```
 
 You can now see the docs at http://localhost:4567
+
+
+### Deployment
+
+Create a production build:
+
+```shell
+bundle exec middleman build --clean
+```
+
+Deploy `build` with Now:
+
+```shell
+now && now alias
+```
+
 
 Thanks
 --------------------

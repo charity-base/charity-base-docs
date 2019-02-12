@@ -5,7 +5,7 @@
 > E.g. list charities with income £10k - £100k:
 
 ```shell
-curl "https://charitybase.uk/api/v4.0.1/charities\
+curl "https://charitybase.uk/api/v4/charities\
 ?apiKey=my-api-key\
 &fields=income.latest.total\
 &incomeRange=10000,100000\
@@ -30,7 +30,7 @@ const responsePromise = charityBase.charity.list({
 
 ```json
 {
-  "version": "v4.0.1",
+  "version": "v4",
   "query": { ... },
   "charities": [
     {
@@ -82,7 +82,7 @@ Parameter               |  Description
 > E.g. count Big Lottery funded animal charities operating in North Yorkshire:
 
 ```shell
-curl "https://charitybase.uk/api/v4.0.1/count-charities\
+curl "https://charitybase.uk/api/v4/count-charities\
 ?apiKey=my-api-key\
 &funders=360G-blf\
 &causes.id=111\
@@ -107,7 +107,7 @@ const responsePromise = charityBase.charity.count({
 
 ```json
 {
-  "version": "v4.0.1",
+  "version": "v4",
   "query": { ... },
   "count": 11
 }
