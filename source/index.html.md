@@ -1,5 +1,5 @@
 ---
-title: CharityBase Docs
+title: CharityBase v4 Docs
 
 language_tabs:
   - shell
@@ -7,7 +7,6 @@ language_tabs:
 
 toc_footers:
   - <a href='https://charitybase.uk/api-portal'>Sign Up for an API Key</a>
-  - <a href='https://charitybase.uk'>CharityBase Web App</a>
   - <a href='https://charitybase.uk/about#licence'>Licence</a>
   - <a href='https://github.com/charity-base/charity-base-docs'>Edit on GitHub</a>
 
@@ -21,6 +20,8 @@ search: true
 
 # Introduction
 
-The CharityBase REST API provides public information regarding the activities, locations and finances of all currently registered charities in England and Wales.  The API powers the [CharityBase Web App](https://charitybase.uk) - see the [About](https://charitybase.uk/about) page for more information.
+The CharityBase REST API provides public information regarding the activities, locations and finances of all currently registered charities in England and Wales.
 
-To get started, sign up for an API key from the [API Portal](https://charitybase.uk/api-portal).
+<aside class='warning'>
+  This API version has been deprecated and will stop working in Q3 2019.  Please migrate to the GraphQL API, documented at <a href='https://charitybase.uk/api-portal'>charitybase.uk/api-portal</a>
+</aside>
