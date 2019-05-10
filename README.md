@@ -1,10 +1,9 @@
-# CharityBase Docs
+# CharityBase v4 Docs
 
-Source code for the [CharityBase API Documentation](https://charity-base.github.io/charity-base-docs/)
+Docs site for the deprecated CharityBase v4 REST API.
 
-To use the API you'll need to generate a key from the [API Portal](https://charitybase.uk/api-portal)
+**The v4 API will stop working in Q3 2019.**  Please migrate to the GraphQL API, documented at [charitybase.uk/api-portal](https://charitybase.uk/api-portal).
 
-The API itself is also open source: [charity-base-api](https://github.com/charity-base/charity-base-api)
 
 Docs Development
 ------------------------------
@@ -21,17 +20,12 @@ You're going to need:
 
 ### Getting Set Up
 
-1. Fork this repository on GitHub.
-2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/charity-base-docs.git`
-3. `cd charity-base-docs`
-4. Initialize and start charity-base-docs. You can either do this locally, or with Vagrant:
-
 ```shell
-# either run this to run locally
+# Run locally:
 bundle install
 bundle exec middleman server
 
-# OR run this to run with vagrant
+# Or with vagrant:
 vagrant up
 ```
 
